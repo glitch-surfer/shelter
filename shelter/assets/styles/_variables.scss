@@ -7,11 +7,12 @@ $header-text-color: #CDCDCD;
 $white: #FFFFFF;
 $btn-color: #F1CDB3;
 $title-color: #545454;
+$card-color: #FAFAFA;
 
 @mixin text {
     font-family: $paragraph-font;
     font-size: 15px;
-    line-height: 160%;
+    line-height: 24px;
 }
 
 @mixin title {

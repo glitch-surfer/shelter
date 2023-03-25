@@ -1,2 +1,104 @@
 @import 'variables';
 
+.pets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F6F6F6;
+    padding-bottom: 100px;
+
+    &__title {
+        margin-top: 80px;
+        margin-bottom: 59px;
+        text-align: center;
+        max-width: 400px;
+        @include title
+    }
+
+    &__slider {
+        margin-bottom: 60px;
+    }
+
+    //TODOразобраться позже
+    /*     display: grid;
+    grid-template:
+    [row1-start] ". title title title ." 200px [row1-end]
+    [row2-start] "prev-btn first-card second-card third-card next-btn" 30.8% [row2-end]
+    [row3-start] ". . btn . ." 200px [row3-end]
+        / auto repeat(3, 22.5%) auto;
+    gap: 60px;
+    background-color: #F6F6F6;
+    &__title {
+        grid-area: title;
+    }
+    &__btn_prev {
+        grid-area: prev-btn;
+    }
+    &__btn_next {
+        grid-area: next-btn;
+    }
+    &__btn {
+        grid-area: btn;
+    } */
+}
+
+.slider {
+    /*     display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+
+    &__item_1 {
+        grid-area: first-card;
+    }
+    &__item_2 {
+        grid-area: second-card;
+    }
+    &__item_3 {
+        grid-area: third-card;
+    } */
+    display: flex;
+    align-items: center;
+    gap: 90px;
+
+
+    &__btn_prev {
+        padding: 0;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+        margin-right: -37px;
+    }
+
+    &__btn_next {
+        margin-left: -37px;
+        padding: 0;
+        width: 52px;
+        height: 52px;
+        background-color: transparent;
+    }
+}
+
+.card {
+    min-width: 270px;
+    padding-bottom: 30px;
+    border-radius: 9px;
+    background-color: $card-color;
+    text-align: center;
+
+    &__img {
+        background-color: transparent;
+        margin-bottom: 19px;
+    }
+
+    &__subtitle {
+        color: $title-color;
+        font-size: 20px;
+        line-height: 23px;
+        letter-spacing: 0.06em;
+        margin-bottom: 30px;
+    }
+
+    &__btn {
+        background-color: transparent;
+    }
+}

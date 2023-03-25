@@ -1,5 +1,6 @@
 @import 'variables';
 .btn {
+    position: relative;
     padding: 13px 43px;
     background: $btn-color;
 border-radius: 100px;
@@ -7,4 +8,14 @@ font-size: 17px;
 line-height: 130%;
 letter-spacing: 0.06em;
 border: 2px solid #F1CDB3;
+    &__arrow-back {
+        position: absolute;
+        top: 22px;
+        left: 17px;
+    }
+    &__arrow-forward {
+        position: absolute;
+        top: 22px;
+        right: 17px;
+    }
 }
