@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Arial';
+    font-weight: normal;
+    font-style: normal;
+    src: local(''),
+        url('/shelter/assets/fonts/Arial.woff2') format('woff2'),
+        url('/shelter/assets/fonts/Arial.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Georgia';
+    font-weight: normal;
+    font-style: normal;
+    src: local(''),
+        url('/shelter/assets/fonts/Georgia.woff2') format('woff2'),
+        url('/shelter/assets/fonts/Georgia.woff') format('woff');
+}
