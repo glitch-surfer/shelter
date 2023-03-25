@@ -172,7 +172,7 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #F6F6F6;
+  background-color: #F6F6F6;
   padding-bottom: 100px;
   /*     display: grid;
   grid-template:
@@ -290,6 +290,7 @@ svg {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 45px;
 }
 .help-list__item {
   display: flex;
@@ -341,4 +342,62 @@ svg {
   line-height: 23px;
   letter-spacing: 0.06em;
   color: #545454;
+}
+
+.donation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  background-color: #F6F6F6;
+}
+.donation__wraper {
+  max-width: 380px;
+}
+.donation__title {
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+  max-width: 300px;
+  margin-bottom: 20px;
+  color: #545454;
+}
+.donation__text {
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+.donation__link {
+  position: relative;
+  padding: 10px 15px 10px 60px;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #F1CDB3;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+  color: #545454;
+  border-radius: 9px;
+}
+.donation__icon {
+  display: inline-block;
+  position: absolute;
+  left: 15px;
+  background: url(/shelter/assets/icons/credit-card.svg) no-repeat center;
+  background-size: contain;
+  width: 30px;
+  height: 23px;
+}
+.donation__legal-text {
+  font-family: "Arial";
+  font-style: italic;
+  font-size: 12px;
+  line-height: 150%;
+  color: #B2B2B2;
 }/*# sourceMappingURL=style.css.map */
