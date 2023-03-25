@@ -1,0 +1,51 @@
+@import 'variables';
+
+.footer {
+    padding-top: 56px;
+    padding-bottom: 64px;
+/*     display: flex;
+    gap: 160px; */
+
+    display: grid;
+    grid-template-columns: 278px 302px 25%;
+    grid-template-rows: 90px 110px;
+    grid-auto-flow: column;
+    gap: 34px 160px;
+    justify-content: space-between;
+    background: url('/shelter/assets/img/footer-background.png') center, no-repeat;
+    background-color: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+
+    &__title {
+        @include title;
+        
+        color: $white;
+        width: 280px;
+    }
+
+    &__item {
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+        color: #F1CDB3;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &_email {
+            margin-top: 9px;
+        }
+    }
+    
+    &__icon {
+        min-width: 22px ;
+    }
+    
+    &__img {
+        margin-top: -17px;
+        grid-area: 1/3;
+    }
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
