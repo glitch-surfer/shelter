@@ -1,0 +1,35 @@
+@import 'variables';
+
+.hero {
+    margin-top: -180px;
+    display: grid;
+    grid-template-columns: auto 58%;
+    grid-template-rows: 180px 80%;
+    /* align-items: center; */
+    background: url('/shelter/assets/img/start-screen-background.jpg') center, no-repeat;
+    background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    background-size: cover;
+    &__wraper {
+        margin-top: 133px;
+        grid-area: 2/1;
+    }
+    &__title {
+        margin-bottom: 42px;
+        max-width: 310px;
+        font-size: 44px;
+        line-height: 130%;
+        color: $white;
+    }
+
+    &__subtitle {
+        margin-bottom: 42px;
+        max-width: 460px;
+        font-family: 'Arial';
+        font-size: 15px;
+        line-height: 160%;
+        color: $header-text-color;
+    }
+    &__img {
+        grid-area: 2/2;
+    }
+}
