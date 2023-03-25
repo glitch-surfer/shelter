@@ -49,6 +49,7 @@ svg {
 .header__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 60px;
   padding-top: 30px;
   padding-bottom: 90px;
@@ -57,4 +58,23 @@ svg {
 .nav {
   display: flex;
   gap: 35px;
+}
+
+.logo__title {
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #F1CDB3;
+}
+.logo__subtitle {
+  font-family: "Arial";
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+}
+
+.nav {
+  font-family: "Arial";
+  color: #CDCDCD;
 }/*# sourceMappingURL=style.css.map */
