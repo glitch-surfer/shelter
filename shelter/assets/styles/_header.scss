@@ -4,7 +4,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* height: 60px; */
     padding-top: 30px;
     padding-bottom: 90px;
 }
@@ -35,10 +34,9 @@
 }
 
 .nav {
-    font-family: $paragraph-font;
+    @include text;
     color: $header-text-color;
-    font-size: 15px;
-    line-height: 160%;
+    
     &__item {
         border-bottom: 3px solid transparent;
     }

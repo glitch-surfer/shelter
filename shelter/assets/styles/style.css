@@ -51,7 +51,6 @@ svg {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: 60px; */
   padding-top: 30px;
   padding-bottom: 90px;
 }
@@ -79,9 +78,9 @@ svg {
 
 .nav {
   font-family: "Arial";
-  color: #CDCDCD;
   font-size: 15px;
   line-height: 160%;
+  color: #CDCDCD;
 }
 .nav__item {
   border-bottom: 3px solid transparent;
@@ -92,7 +91,7 @@ svg {
   display: grid;
   grid-template-columns: auto 58%;
   grid-template-rows: 180px 80%;
-  /* align-items: center; */
+  margin-bottom: 80px;
   background: url("/shelter/assets/img/start-screen-background.jpg") center, no-repeat;
   background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
   background-size: cover;
@@ -128,4 +127,31 @@ svg {
   line-height: 130%;
   letter-spacing: 0.06em;
   border: none;
+}
+
+.about {
+  padding-bottom: 114px;
+  display: grid;
+  grid-template-columns: 25% 36%;
+  justify-content: center;
+  gap: 120px;
+}
+.about__wraper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.about__title {
+  padding-top: 16px;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #545454;
+}
+.about__text {
+  font-family: "Arial";
+  font-size: 15px;
+  line-height: 160%;
+  color: #4C4C4C;
 }/*# sourceMappingURL=style.css.map */

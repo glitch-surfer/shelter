@@ -1,0 +1,26 @@
+@import 'variables';
+
+.about {
+    padding-bottom: 114px;
+    display: grid;
+    grid-template-columns: 25% 36%;
+    justify-content: center;
+    gap: 120px;
+
+    &__wraper {
+       display: flex;
+       flex-direction: column;
+       gap: 25px;
+    }
+
+    &__title {
+        padding-top: 16px;
+        @include title
+    }
+
+    &__text {
+        @include text;
+        color: #4C4C4C;
+    
+    }
+}
