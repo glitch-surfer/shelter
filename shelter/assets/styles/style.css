@@ -118,4 +118,14 @@ svg {
 }
 .hero__img {
   grid-area: 2/2;
+}
+
+.btn {
+  padding: 15px 45px;
+  background: #F1CDB3;
+  border-radius: 100px;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  border: none;
 }/*# sourceMappingURL=style.css.map */

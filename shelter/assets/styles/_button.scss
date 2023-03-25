@@ -1,0 +1,10 @@
+@import 'variables';
+.btn {
+    padding: 15px 45px;
+    background: $btn-color;
+border-radius: 100px;
+font-size: 17px;
+line-height: 130%;
+letter-spacing: 0.06em;
+border: none;
+}
