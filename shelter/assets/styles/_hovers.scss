@@ -27,12 +27,24 @@
 
 .card {
     &__interactive:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-        /* box-shadow: ; */
         .card__btn {
-            background-color: $main-color;
+            background-color: $btn-hovered-color;
+            border-color: $btn-hovered-color;
         }
     }
     
+}
+
+.btn:hover {
+    background-color: $btn-hovered-color;
+    border-color: $btn-hovered-color;
+}
+.donation__link:hover {
+    background-color: $btn-hovered-color;
+}
+.pagination {
+    &__btn_central:active {
+        background-color: $main-color;
+        border-color: $main-color;
+    }
 }

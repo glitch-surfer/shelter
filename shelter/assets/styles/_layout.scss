@@ -8,8 +8,7 @@
 
 html {
     font-family: $main-font, $paragraph-font, sans-serif;
-    font-size: 16px;
-    line-height: 32px;
+    scroll-behavior: smooth;
 }
 
 a,

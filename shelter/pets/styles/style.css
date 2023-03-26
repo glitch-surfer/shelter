@@ -24,8 +24,7 @@
 
 html {
   font-family: "Georgia", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 32px;
+  scroll-behavior: smooth;
 }
 
 a,
@@ -116,6 +115,7 @@ svg {
   letter-spacing: 0.06em;
   border: 2px solid #F1CDB3;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 .btn__arrow-back {
   position: absolute;
@@ -137,6 +137,7 @@ svg {
   align-items: center;
   background-color: #F6F6F6;
   padding-bottom: 100px;
+  scroll-behavior: smooth;
   /*     display: grid;
   grid-template:
   [row1-start] ". title title title ." 200px [row1-end]
@@ -212,6 +213,7 @@ svg {
   border-radius: 9px;
   background-color: #FAFAFA;
   text-align: center;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 .card__img {
@@ -227,7 +229,6 @@ svg {
 }
 .card__btn {
   background-color: transparent;
-  transition: background-color 0.3s ease-in-out;
 }
 
 /* sizes */
@@ -236,6 +237,7 @@ svg {
 .footer {
   background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
+  scroll-behavior: smooth;
 }
 .footer__wraper {
   padding: 56px 40px 64px;
@@ -305,13 +307,23 @@ svg {
   pointer-events: none;
 }
 
-.card__interactive:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  /* box-shadow: ; */
-}
 .card__interactive:hover .card__btn {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+
+.btn:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+
+.donation__link:hover {
+  background-color: #FDDCC4;
+}
+
+.pagination__btn_central:active {
   background-color: #F1CDB3;
+  border-color: #F1CDB3;
 }
 
 .logo__title {
@@ -359,7 +371,7 @@ svg {
   text-align: center;
   letter-spacing: 0.06em;
   color: #292929;
-}
-.pagination__btn_central {
-  background-color: #F1CDB3;
+  /* &_central {
+      background-color: $btn-color;
+  } */
 }/*# sourceMappingURL=style.css.map */

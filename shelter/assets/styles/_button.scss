@@ -2,13 +2,14 @@
 .btn {
     position: relative;
     padding: 13px 43px;
-    background: $btn-color;
+    background: $main-color;
 border-radius: 100px;
 font-size: 17px;
 line-height: 130%;
 letter-spacing: 0.06em;
 border: 2px solid #F1CDB3;
 cursor: pointer;
+transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
     &__arrow-back {
         position: absolute;
         top: 22px;
