@@ -9,11 +9,10 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 278px 302px 25%;
-    grid-template-rows: 90px 110px;
+    grid-template-rows: 90px 113px;
     grid-auto-flow: column;
     gap: 34px 160px;
     justify-content: space-between;
-    
     }
 
     &__title {

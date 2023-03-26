@@ -1,0 +1,38 @@
+.pets-nav-hover {
+    &:hover {
+        color: $color-dark;
+    }
+    &:active {
+        color: $title-color;
+        border-color: $main-color;
+    }
+}
+
+.main-nav-hover {
+    &:hover {
+        color: $card-color;
+    }
+    &:active {
+        color: $card-color;
+        border-color: $main-color;
+    }
+}
+
+.pagination {
+    &__btn[disabled] {
+        border-color: $header-text-color;
+        pointer-events: none;
+    }
+}
+
+.card {
+    &__interactive:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        /* box-shadow: ; */
+        .card__btn {
+            background-color: $main-color;
+        }
+    }
+    
+}

@@ -84,6 +84,7 @@
     border-radius: 9px;
     background-color: $card-color;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
 
     &__img {
         background-color: transparent;
@@ -100,5 +101,6 @@
 
     &__btn {
         background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
     }
 }

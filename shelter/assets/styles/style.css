@@ -283,6 +283,7 @@ svg {
   border-radius: 9px;
   background-color: #FAFAFA;
   text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 .card__img {
   background-color: transparent;
@@ -297,6 +298,7 @@ svg {
 }
 .card__btn {
   background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
 }
 
 /* sizes */
@@ -457,7 +459,7 @@ svg {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 278px 302px 25%;
-  grid-template-rows: 90px 110px;
+  grid-template-rows: 90px 113px;
   grid-auto-flow: column;
   gap: 34px 160px;
   justify-content: space-between;
@@ -517,4 +519,13 @@ svg {
 .pagination__btn[disabled] {
   border-color: #CDCDCD;
   pointer-events: none;
+}
+
+.card__interactive:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  /* box-shadow: ; */
+}
+.card__interactive:hover .card__btn {
+  background-color: #F1CDB3;
 }/*# sourceMappingURL=style.css.map */
