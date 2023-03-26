@@ -1,12 +1,16 @@
 @import 'variables';
 
 .hero {
+    max-width: $max-width;
+    margin: 0 auto;
     margin-top: -180px;
+    padding-left: 40px;
+    padding-right: 40px;
     display: grid;
     grid-template-columns: auto 58%;
     grid-template-rows: 180px 80%;
     margin-bottom: 80px;
-    background: url('/shelter/assets/img/start-screen-background.jpg') center no-repeat;
+    
     /* background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
     /* background-image: url('/shelter/assets/img/start-screen-background.jpg');
     background-repeat: no-repeat;

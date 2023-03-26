@@ -1,6 +1,8 @@
 @import 'variables';
 
 .about {
+    max-width: $max-width-minus-pad;
+    margin: 0 auto;
     padding-bottom: 102px;
     display: grid;
     grid-template-columns: 25% 36%;

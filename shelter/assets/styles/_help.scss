@@ -8,6 +8,8 @@
     gap: 59px;
 
     &__container {
+        max-width: $max-width;
+    margin: 0 auto;
         padding-left: 127px;
         padding-right: 127px;
     }

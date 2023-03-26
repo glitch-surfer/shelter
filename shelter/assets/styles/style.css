@@ -40,17 +40,19 @@ svg {
   max-width: 100%;
 }
 
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding-left: 40px;
-  padding-right: 40px;
+.hero-background {
+  background: url("/shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+  background-size: cover;
+  /* padding-left: $container-padding;
+  padding-right: $container-padding; */
 }
 
 .header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 90px;
 }
@@ -87,12 +89,15 @@ svg {
 }
 
 .hero {
+  max-width: 1280px;
+  margin: 0 auto;
   margin-top: -180px;
+  padding-left: 40px;
+  padding-right: 40px;
   display: grid;
   grid-template-columns: auto 58%;
   grid-template-rows: 180px 80%;
   margin-bottom: 80px;
-  background: url("/shelter/assets/img/start-screen-background.jpg") center no-repeat;
   /* background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
   /* background-image: url('/shelter/assets/img/start-screen-background.jpg');
   background-repeat: no-repeat;
@@ -144,6 +149,8 @@ svg {
 }
 
 .about {
+  max-width: 1200px;
+  margin: 0 auto;
   padding-bottom: 102px;
   display: grid;
   grid-template-columns: 25% 36%;
@@ -275,6 +282,8 @@ svg {
   gap: 59px;
 }
 .help__container {
+  max-width: 1280px;
+  margin: 0 auto;
   padding-left: 127px;
   padding-right: 127px;
 }
@@ -405,18 +414,19 @@ svg {
 }
 
 .footer {
-  padding-top: 56px;
-  padding-bottom: 64px;
-  /*     display: flex;
-      gap: 160px; */
+  background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
+  background-size: cover;
+}
+.footer__wraper {
+  padding: 56px 40px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: 278px 302px 25%;
   grid-template-rows: 90px 110px;
   grid-auto-flow: column;
   gap: 34px 160px;
   justify-content: space-between;
-  background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
-  background-color: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
 }
 .footer__title {
   font-weight: 400;
