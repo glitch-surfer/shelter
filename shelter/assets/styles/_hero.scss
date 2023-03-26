@@ -6,8 +6,11 @@
     grid-template-columns: auto 58%;
     grid-template-rows: 180px 80%;
     margin-bottom: 80px;
-    background: url('/shelter/assets/img/start-screen-background.jpg') center, no-repeat;
-    background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    background: url('/shelter/assets/img/start-screen-background.jpg') center no-repeat;
+    /* background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
+    /* background-image: url('/shelter/assets/img/start-screen-background.jpg');
+    background-repeat: no-repeat;
+    background-position: center; */
     &__wraper {
         margin-top: 133px;
         grid-area: 2/1;
@@ -24,7 +27,7 @@
     &__subtitle {
         margin-bottom: 42px;
         max-width: 460px;
-        font-family: 'Arial';
+        font-family: $paragraph-font;
         font-size: 15px;
         line-height: 160%;
         color: $header-text-color;
