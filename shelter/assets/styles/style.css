@@ -154,6 +154,7 @@ svg {
   line-height: 130%;
   letter-spacing: 0.06em;
   border: 2px solid #F1CDB3;
+  cursor: pointer;
 }
 .btn__arrow-back {
   position: absolute;
@@ -511,4 +512,9 @@ svg {
 .main-nav-hover:active {
   color: #FAFAFA;
   border-color: #F1CDB3;
+}
+
+.pagination__btn[disabled] {
+  border-color: #CDCDCD;
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */

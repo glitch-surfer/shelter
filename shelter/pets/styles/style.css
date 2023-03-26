@@ -115,6 +115,7 @@ svg {
   line-height: 130%;
   letter-spacing: 0.06em;
   border: 2px solid #F1CDB3;
+  cursor: pointer;
 }
 .btn__arrow-back {
   position: absolute;
@@ -297,6 +298,11 @@ svg {
   border-color: #F1CDB3;
 }
 
+.pagination__btn[disabled] {
+  border-color: #CDCDCD;
+  pointer-events: none;
+}
+
 .logo__title {
   color: #545454;
 }
@@ -337,4 +343,12 @@ svg {
   width: 52px;
   height: 52px;
   background-color: transparent;
+  font-size: 20px;
+  line-height: 115%;
+  text-align: center;
+  letter-spacing: 0.06em;
+  color: #292929;
+}
+.pagination__btn_central {
+  background-color: #F1CDB3;
 }/*# sourceMappingURL=style.css.map */
