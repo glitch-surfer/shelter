@@ -1,0 +1,16 @@
+.logo {
+    &__title {
+        color: $title-color;
+    }
+    &__subtitle {
+        color: $color-dark;
+    }
+}
+.nav {
+    &__item {
+        color: $title-color;
+    }
+}
+.header__container {
+    padding-bottom: 30px;
+}
