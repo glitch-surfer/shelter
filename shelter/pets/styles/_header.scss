@@ -9,6 +9,12 @@
 .nav {
     &__item {
         color: $title-color;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+    &__is-active {
+        color: $title-color;
+        border-color: $main-color;
+        pointer-events: none;
     }
 }
 .header__container {

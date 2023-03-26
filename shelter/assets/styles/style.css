@@ -10,6 +10,9 @@
   font-style: normal;
   src: local(""), url("/shelter/assets/fonts/Georgia.woff2") format("woff2"), url("/shelter/assets/fonts/Georgia.woff") format("woff");
 }
+/* sizes */
+/* fonts */
+/* colors */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -47,6 +50,9 @@ svg {
   padding-right: $container-padding; */
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .header__container {
   display: flex;
   justify-content: space-between;
@@ -86,8 +92,17 @@ svg {
 }
 .nav__item {
   border-bottom: 3px solid transparent;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+.nav__is-active {
+  color: #FAFAFA;
+  border-color: #F1CDB3;
+  pointer-events: none;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .hero {
   max-width: 1280px;
   margin: 0 auto;
@@ -127,6 +142,9 @@ svg {
   grid-area: 2/2;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .btn {
   position: relative;
   padding: 13px 43px;
@@ -148,6 +166,9 @@ svg {
   right: 17px;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .about {
   max-width: 1200px;
   margin: 0 auto;
@@ -177,6 +198,9 @@ svg {
   color: #4C4C4C;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .pets {
   display: flex;
   flex-direction: column;
@@ -274,6 +298,9 @@ svg {
   background-color: transparent;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .help {
   text-align: center;
   display: flex;
@@ -355,6 +382,9 @@ svg {
   color: #545454;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .donation {
   display: flex;
   justify-content: center;
@@ -413,6 +443,9 @@ svg {
   color: #B2B2B2;
 }
 
+/* sizes */
+/* fonts */
+/* colors */
 .footer {
   background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
@@ -445,6 +478,8 @@ svg {
   display: flex;
   align-items: center;
   gap: 20px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 .footer__item_email {
   margin-top: 9px;
@@ -460,4 +495,20 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.pets-nav-hover:hover {
+  color: #292929;
+}
+.pets-nav-hover:active {
+  color: #545454;
+  border-color: #F1CDB3;
+}
+
+.main-nav-hover:hover {
+  color: #FAFAFA;
+}
+.main-nav-hover:active {
+  color: #FAFAFA;
+  border-color: #F1CDB3;
 }/*# sourceMappingURL=style.css.map */

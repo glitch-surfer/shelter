@@ -41,5 +41,12 @@
     
     &__item {
         border-bottom: 3px solid transparent;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
     }
+    &__is-active {
+        color: $card-color;
+        border-color: $main-color;
+        pointer-events: none;
+    }
+    
 }
