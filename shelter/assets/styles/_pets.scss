@@ -86,11 +86,10 @@
     background-color: $card-color;
     text-align: center;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
 
     &__img {
         background-color: transparent;
-        margin-bottom: 19px;
+        margin-bottom: 26px;
     }
 
     &__subtitle {

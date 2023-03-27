@@ -46,7 +46,7 @@ svg {
 }
 
 .hero-background {
-  background: url("../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+  background: url("../../../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
   background-size: cover;
   /* padding-left: $container-padding;
   padding-right: $container-padding; */
@@ -214,11 +214,10 @@ svg {
   background-color: #FAFAFA;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 .card__img {
   background-color: transparent;
-  margin-bottom: 19px;
+  margin-bottom: 26px;
 }
 .card__subtitle {
   color: #545454;
@@ -235,7 +234,7 @@ svg {
 /* fonts */
 /* colors */
 .footer {
-  background: url("../shelter/assets/img/footer-background.png") center, no-repeat;
+  background: url("../../../shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
   scroll-behavior: smooth;
 }
