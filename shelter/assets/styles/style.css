@@ -43,7 +43,7 @@ svg {
 }
 
 .hero-background {
-  background: url("/shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+  background: url("../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
   background-size: cover;
   /* padding-left: $container-padding;
   padding-right: $container-padding; */
@@ -353,31 +353,31 @@ svg {
   height: 60px;
 }
 .help-list__icon_pet-food {
-  background: url(/shelter/assets/icons/pet-food.svg) no-repeat center;
+  background: url(../shelter/assets/icons/pet-food.svg) no-repeat center;
 }
 .help-list__icon_transportation {
-  background: url(/shelter/assets/icons/transportation.svg) no-repeat center;
+  background: url(../shelter/assets/icons/transportation.svg) no-repeat center;
 }
 .help-list__icon_toys {
-  background: url(/shelter/assets/icons/toys.svg) no-repeat center;
+  background: url(../shelter/assets/icons/toys.svg) no-repeat center;
 }
 .help-list__icon_bowls-and-cups {
-  background: url(/shelter/assets/icons/bowls-and-cups.svg) no-repeat center;
+  background: url(../shelter/assets/icons/bowls-and-cups.svg) no-repeat center;
 }
 .help-list__icon_shampoos {
-  background: url(/shelter/assets/icons/shampoos.svg) no-repeat center;
+  background: url(../shelter/assets/icons/shampoos.svg) no-repeat center;
 }
 .help-list__icon_vitamins {
-  background: url(/shelter/assets/icons/vitamins.svg) no-repeat center;
+  background: url(../shelter/assets/icons/vitamins.svg) no-repeat center;
 }
 .help-list__icon_medicines {
-  background: url(/shelter/assets/icons/medicines.svg) no-repeat center;
+  background: url(../shelter/assets/icons/medicines.svg) no-repeat center;
 }
 .help-list__icon_collars {
-  background: url(/shelter/assets/icons/collars-or-leashes.svg) no-repeat center;
+  background: url(../shelter/assets/icons/collars-or-leashes.svg) no-repeat center;
 }
 .help-list__icon_sleeping-areas {
-  background: url(/shelter/assets/icons/sleeping-area.svg) no-repeat center;
+  background: url(../shelter/assets/icons/sleeping-area.svg) no-repeat center;
 }
 .help-list__subtitle {
   font-size: 20px;
@@ -435,7 +435,7 @@ svg {
   display: inline-block;
   position: absolute;
   left: 15px;
-  background: url(/shelter/assets/icons/credit-card.svg) no-repeat center;
+  background: url(../shelter/assets/icons/credit-card.svg) no-repeat center;
   background-size: contain;
   width: 30px;
   height: 23px;
@@ -452,7 +452,7 @@ svg {
 /* fonts */
 /* colors */
 .footer {
-  background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
+  background: url("../shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
   scroll-behavior: smooth;
 }
@@ -492,6 +492,9 @@ svg {
 }
 .footer__icon {
   min-width: 22px;
+}
+.footer__icon path {
+  transition: fill 0.3s ease-in-out;
 }
 .footer__img {
   margin-top: -17px;
@@ -541,4 +544,8 @@ svg {
 .pagination__btn_central:active {
   background-color: #F1CDB3;
   border-color: #F1CDB3;
+}
+
+.footer__item:hover .footer__icon path {
+  fill: #FAFAFA;
 }/*# sourceMappingURL=style.css.map */

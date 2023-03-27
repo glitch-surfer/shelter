@@ -46,7 +46,7 @@ svg {
 }
 
 .hero-background {
-  background: url("/shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+  background: url("../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
   background-size: cover;
   /* padding-left: $container-padding;
   padding-right: $container-padding; */
@@ -235,7 +235,7 @@ svg {
 /* fonts */
 /* colors */
 .footer {
-  background: url("/shelter/assets/img/footer-background.png") center, no-repeat;
+  background: url("../shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
   scroll-behavior: smooth;
 }
@@ -275,6 +275,9 @@ svg {
 }
 .footer__icon {
   min-width: 22px;
+}
+.footer__icon path {
+  transition: fill 0.3s ease-in-out;
 }
 .footer__img {
   margin-top: -17px;
@@ -324,6 +327,10 @@ svg {
 .pagination__btn_central:active {
   background-color: #F1CDB3;
   border-color: #F1CDB3;
+}
+
+.footer__item:hover .footer__icon path {
+  fill: #FAFAFA;
 }
 
 .logo__title {

@@ -2,6 +2,7 @@
     &:hover {
         color: $color-dark;
     }
+
     &:active {
         color: $title-color;
         border-color: $main-color;
@@ -12,6 +13,7 @@
     &:hover {
         color: $card-color;
     }
+
     &:active {
         color: $card-color;
         border-color: $main-color;
@@ -32,19 +34,29 @@
             border-color: $btn-hovered-color;
         }
     }
-    
+
 }
 
 .btn:hover {
     background-color: $btn-hovered-color;
     border-color: $btn-hovered-color;
 }
+
 .donation__link:hover {
     background-color: $btn-hovered-color;
 }
+
 .pagination {
     &__btn_central:active {
         background-color: $main-color;
         border-color: $main-color;
+    }
+}
+
+.footer {
+    &__item:hover {
+        & .footer__icon path {
+            fill: $card-color;
+        }
     }
 }
