@@ -382,6 +382,7 @@ svg {
 .help-list__subtitle {
   font-size: 20px;
   line-height: 23px;
+  font-weight: 400;
   letter-spacing: 0.06em;
   color: #545454;
 }
