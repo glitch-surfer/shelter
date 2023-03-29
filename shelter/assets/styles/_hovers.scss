@@ -11,7 +11,7 @@
 }
 
 .main-nav-hover {
-    transition: border-color 0.2s ease-in-out;
+    transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
     &:hover {
         color: $card-color;
     }
