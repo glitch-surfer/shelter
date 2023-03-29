@@ -27,9 +27,14 @@ img,
 svg {
     max-width: 100%;
 }
-.hero-background {
+
+.container {
+    max-width: $max-width;
+    margin: auto;
+    padding-left: $container-padding;
+    padding-right: $container-padding;
+}
+.hero {
     background: url("../../../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
     background-size: cover;
-    /* padding-left: $container-padding;
-    padding-right: $container-padding; */
 }

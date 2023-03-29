@@ -3,12 +3,10 @@
 .footer {
     background: url('../../../shelter/assets/img/footer-background.png') center, no-repeat;
     background-size: cover;
-    scroll-behavior: smooth;
 
-    &__wraper {
-        padding: 56px 40px 56px;
-        max-width: $max-width;
-        margin: 0 auto;
+    &__container {
+        padding-top: 56px;
+        padding-bottom: 56px;
         display: grid;
         grid-template-columns: 278px 302px 25%;
         grid-template-rows: 90px 113px;
@@ -24,13 +22,13 @@
     }
 
     &__item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
         font-size: 20px;
         line-height: 115%;
         letter-spacing: 0.06em;
         color: #F1CDB3;
-        display: flex;
-        align-items: center;
-        gap: 20px;
         border-bottom: 3px solid transparent;
         transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 

@@ -1,8 +1,6 @@
 .pets-page-slider {
-    margin-bottom: 60px;
-    max-width: 1200px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 270px);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px 40px;
 }
 
@@ -22,8 +20,5 @@
         text-align: center;
         letter-spacing: 0.06em;
         color: #292929;
-        /* &_central {
-            background-color: $btn-color;
-        } */
     }
 }

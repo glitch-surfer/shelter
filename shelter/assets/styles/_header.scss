@@ -1,18 +1,16 @@
 @import 'variables';
 
-.header__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: $max-width-minus-pad;
-    margin: 0 auto;
-    padding-top: 30px;
-    padding-bottom: 90px;
-}
 
-.nav {
-    display: flex;
-    gap: 36px;
+.header {
+    
+    &__container {
+        display: flex;
+        padding-top: 30px;
+        padding-bottom: 90px;
+        justify-content: space-between;
+        align-items: center;
+
+    }
 }
 
 .logo {
@@ -36,17 +34,20 @@
 }
 
 .nav {
+    display: flex;
+    gap: 36px;
     @include text;
     color: $header-text-color;
-    
+
     &__item {
         border-bottom: 3px solid transparent;
         transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
     }
+
     &__is-active {
         color: $card-color;
         border-color: $main-color;
         pointer-events: none;
     }
-    
+
 }

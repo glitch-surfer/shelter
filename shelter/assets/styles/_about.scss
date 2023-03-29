@@ -1,18 +1,19 @@
 @import 'variables';
 
 .about {
-    max-width: $max-width-minus-pad;
-    margin: 0 auto;
     padding-bottom: 102px;
-    display: grid;
-    grid-template-columns: 25% 36%;
-    justify-content: center;
-    gap: 120px;
 
-    &__wraper {
-       display: flex;
-       flex-direction: column;
-       gap: 25px;
+    &__container {
+        display: grid;
+        grid-template-columns: 25% 36%;
+        justify-content: center;
+        gap: 120px;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
     }
 
     &__title {
@@ -22,7 +23,6 @@
 
     &__text {
         @include text;
-        color: #4C4C4C;
-    
+        color: $text-color;
     }
 }

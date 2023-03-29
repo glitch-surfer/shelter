@@ -10,12 +10,6 @@
   font-style: normal;
   src: local(""), url("../../../shelter/assets/fonts/Georgia.woff2") format("woff2"), url("../../../shelter/assets/fonts/Georgia.woff") format("woff");
 }
-/* sizes */
-/* fonts */
-/* colors */
-/* sizes */
-/* fonts */
-/* colors */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,29 +39,24 @@ svg {
   max-width: 100%;
 }
 
-.hero-background {
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.hero {
   background: url("../../../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
   background-size: cover;
-  /* padding-left: $container-padding;
-  padding-right: $container-padding; */
 }
 
-/* sizes */
-/* fonts */
-/* colors */
 .header__container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 90px;
-}
-
-.nav {
-  display: flex;
-  gap: 36px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo__title {
@@ -87,6 +76,8 @@ svg {
 }
 
 .nav {
+  display: flex;
+  gap: 36px;
   font-family: "Arial";
   font-size: 15px;
   line-height: 24px;
@@ -102,9 +93,6 @@ svg {
   pointer-events: none;
 }
 
-/* sizes */
-/* fonts */
-/* colors */
 .btn {
   position: relative;
   padding: 13px 43px;
@@ -128,40 +116,18 @@ svg {
   right: 17px;
 }
 
-/* sizes */
-/* fonts */
-/* colors */
 .pets {
+  background-color: #F6F6F6;
+  padding-bottom: 100px;
+  padding-top: 80px;
+}
+.pets__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #F6F6F6;
-  padding-bottom: 100px;
-  scroll-behavior: smooth;
-  /*     display: grid;
-  grid-template:
-  [row1-start] ". title title title ." 200px [row1-end]
-  [row2-start] "prev-btn first-card second-card third-card next-btn" 30.8% [row2-end]
-  [row3-start] ". . btn . ." 200px [row3-end]
-      / auto repeat(3, 22.5%) auto;
   gap: 60px;
-  background-color: #F6F6F6;
-  &__title {
-      grid-area: title;
-  }
-  &__btn_prev {
-      grid-area: prev-btn;
-  }
-  &__btn_next {
-      grid-area: next-btn;
-  }
-  &__btn {
-      grid-area: btn;
-  } */
 }
 .pets__title {
-  margin-top: 80px;
-  margin-bottom: 59px;
   text-align: center;
   max-width: 400px;
   font-weight: 400;
@@ -170,37 +136,18 @@ svg {
   letter-spacing: 0.06em;
   color: #545454;
 }
-.pets__slider {
-  margin-bottom: 60px;
-}
 
 .slider {
-  /*     display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-
-  &__item_1 {
-      grid-area: first-card;
-  }
-  &__item_2 {
-      grid-area: second-card;
-  }
-  &__item_3 {
-      grid-area: third-card;
-  } */
+  display: flex;
+  align-items: center;
+  gap: 53px;
+}
+.slider__content {
   display: flex;
   align-items: center;
   gap: 90px;
 }
-.slider__btn_prev {
-  padding: 0;
-  width: 52px;
-  height: 52px;
-  background-color: transparent;
-  margin-right: -37px;
-}
-.slider__btn_next {
-  margin-left: -37px;
+.slider__btn {
   padding: 0;
   width: 52px;
   height: 52px;
@@ -231,18 +178,13 @@ svg {
   background-color: transparent;
 }
 
-/* sizes */
-/* fonts */
-/* colors */
 .footer {
   background: url("../../../shelter/assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
-  scroll-behavior: smooth;
 }
-.footer__wraper {
-  padding: 56px 40px 56px;
-  max-width: 1280px;
-  margin: 0 auto;
+.footer__container {
+  padding-top: 56px;
+  padding-bottom: 56px;
   display: grid;
   grid-template-columns: 278px 302px 25%;
   grid-template-rows: 90px 113px;
@@ -260,13 +202,13 @@ svg {
   width: 280px;
 }
 .footer__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-size: 20px;
   line-height: 115%;
   letter-spacing: 0.06em;
   color: #F1CDB3;
-  display: flex;
-  align-items: center;
-  gap: 20px;
   border-bottom: 3px solid transparent;
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
@@ -370,10 +312,8 @@ svg {
 }
 
 .pets-page-slider {
-  margin-bottom: 60px;
-  max-width: 1200px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 270px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px 40px;
 }
 
@@ -393,7 +333,4 @@ svg {
   text-align: center;
   letter-spacing: 0.06em;
   color: #292929;
-  /* &_central {
-      background-color: $btn-color;
-  } */
 }/*# sourceMappingURL=style.css.map */

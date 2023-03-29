@@ -1,14 +1,16 @@
 @import 'variables';
 
 .donation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    background-color: $main-background;
     padding-top: 80px;
     padding-bottom: 100px;
-    background-color: $main-background;
-
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+    
     &__wraper {
         max-width: 380px;
     }
