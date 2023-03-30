@@ -1,22 +1,38 @@
-.logo {
-    &__title {
-        color: $title-color;
-    }
-    &__subtitle {
+/* PETS HEADER */
+.header__container {
+    padding-bottom: 31px;
+}
+
+.logo__title {
+    color: $title-color;
+}
+
+.logo__subtitle {
+    color: $color-dark;
+}
+
+.nav__item {
+    color: $title-color;
+    @extend %transition;
+    /* transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
+}
+
+.nav__is-active {
+    color: $title-color;
+    border-color: $main-color;
+    pointer-events: none;
+}
+
+.pets-nav-hover {
+    /* transition: border-color 0.2s ease-in-out; */
+    @extend %transition;
+
+    &:hover {
         color: $color-dark;
     }
-}
-.nav {
-    &__item {
-        color: $title-color;
-        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-    }
-    &__is-active {
+
+    &:active {
         color: $title-color;
         border-color: $main-color;
-        pointer-events: none;
     }
-}
-.header__container {
-    padding-bottom: 30px;
 }

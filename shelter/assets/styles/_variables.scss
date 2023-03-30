@@ -24,16 +24,24 @@ $btn-hovered-color: #FDDCC4;
 
 //mixins
 
-@mixin text {
-    font-family: $paragraph-font;
-    font-size: 15px;
-    line-height: 24px;
+@mixin font ($size: 15px, $height: 24px, $weight: 400, $family: $main-font) {
+    font-family: $family;
+    font-size: $size;
+    line-height: $height;
+    font-weight: $weight;
+
 }
 
-@mixin title {
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 130%;
+//placeholder
+%title {
+    @include font ($size: 35px, $height: 130%);
     letter-spacing: 0.06em;
     color: $title-color;
+}
+
+%text {
+    @include font ($family: $paragraph-font)
+}
+%transition {
+    transition: all 0.3s ease-in-out;
 }

@@ -1,85 +1,83 @@
-@import 'variables';
+/* HELP */
 
 .help {
     padding-top: 80px;
     padding-bottom: 100px;
-
-    &__container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 59px;
-        text-align: center;
-    }
-
-    &__title {
-        max-width: 310px;
-        @include title;
-    }
 }
+
+.help__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 59px;
+    text-align: center;
+}
+
+.help__title {
+    max-width: 310px;
+    @extend %title;
+}
+
 
 .help-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 55px 120px;
+}
 
-    &__item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
+.help-list__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 
+}
+
+.help-list__icon {
+    display: block;
+    width: 60px;
+    height: 60px;
+
+    &_pet-food {
+        background: url(../../../shelter/assets/icons/pet-food.svg) no-repeat center;
     }
 
-    &__icon {
-        display: block;
-        width: 60px;
-        height: 60px;
-
-        &_pet-food {
-            background: url(../../../shelter/assets/icons/pet-food.svg) no-repeat center;
-        }
-
-        &_transportation {
-            background: url(../../../shelter/assets/icons/transportation.svg) no-repeat center;
-        }
-
-        &_toys {
-            background: url(../../../shelter/assets/icons/toys.svg) no-repeat center;
-        }
-
-        &_bowls-and-cups {
-            background: url(../../../shelter/assets/icons/bowls-and-cups.svg) no-repeat center;
-        }
-
-        &_shampoos {
-            background: url(../../../shelter/assets/icons/shampoos.svg) no-repeat center;
-        }
-
-        &_vitamins {
-            background: url(../../../shelter/assets/icons/vitamins.svg) no-repeat center;
-        }
-
-        &_medicines {
-            background: url(../../../shelter/assets/icons/medicines.svg) no-repeat center;
-        }
-
-        &_collars {
-            background: url(../../../shelter/assets/icons/collars-or-leashes.svg) no-repeat center;
-        }
-
-        &_sleeping-areas {
-            background: url(../../../shelter/assets/icons/sleeping-area.svg) no-repeat center;
-        }
+    &_transportation {
+        background: url(../../../shelter/assets/icons/transportation.svg) no-repeat center;
     }
 
-    &__subtitle {
-        font-size: 20px;
-        line-height: 23px;
-        font-weight: 400;
-        letter-spacing: 0.06em;
-        color: $title-color;
+    &_toys {
+        background: url(../../../shelter/assets/icons/toys.svg) no-repeat center;
     }
 
+    &_bowls-and-cups {
+        background: url(../../../shelter/assets/icons/bowls-and-cups.svg) no-repeat center;
+    }
+
+    &_shampoos {
+        background: url(../../../shelter/assets/icons/shampoos.svg) no-repeat center;
+    }
+
+    &_vitamins {
+        background: url(../../../shelter/assets/icons/vitamins.svg) no-repeat center;
+    }
+
+    &_medicines {
+        background: url(../../../shelter/assets/icons/medicines.svg) no-repeat center;
+    }
+
+    &_collars {
+        background: url(../../../shelter/assets/icons/collars-or-leashes.svg) no-repeat center;
+    }
+
+    &_sleeping-areas {
+        background: url(../../../shelter/assets/icons/sleeping-area.svg) no-repeat center;
+    }
+}
+
+.help-list__subtitle {
+    @include font ($size: 20px, $height: 23px);
+    letter-spacing: 0.06em;
+    color: $title-color;
 }

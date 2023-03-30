@@ -1,28 +1,27 @@
-@import 'variables';
-
+/* ABOUT */
 .about {
     padding-bottom: 102px;
+}
 
-    &__container {
-        display: grid;
-        grid-template-columns: 25% 36%;
-        justify-content: center;
-        gap: 121px;
-    }
+.about__text {
+    @extend %text;
+    color: $text-color;
+}
 
-    &__wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-    }
+.about__title {
+    @extend %title;
+    padding-top: 15px;
+}
 
-    &__title {
-        padding-top: 15px;
-        @include title
-    }
+.about__container {
+    display: grid;
+    grid-template-columns: 25% 36%;
+    justify-content: center;
+    gap: 121px;
+}
 
-    &__text {
-        @include text;
-        color: $text-color;
-    }
+.about__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }

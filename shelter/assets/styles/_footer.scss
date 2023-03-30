@@ -1,64 +1,71 @@
-@import 'variables';
-
+/* FOOTER */
 .footer {
     background: url('../../../shelter/assets/img/footer-background.png') center, no-repeat;
     background-size: cover;
+}
 
-    &__container {
-        padding-top: 56px;
-        padding-bottom: 56px;
-        display: grid;
-        grid-template-columns: 278px 302px 25%;
-        grid-template-rows: 90px 113px;
-        grid-auto-flow: column;
-        gap: 34px 160px;
-        justify-content: space-between;
+.footer__container {
+    padding-top: 56px;
+    padding-bottom: 56px;
+    display: grid;
+    grid-template-columns: 278px 302px 25%;
+    grid-template-rows: 90px 113px;
+    grid-auto-flow: column;
+    gap: 34px 160px;
+    justify-content: space-between;
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer__title {
+    @extend %title;
+    color: $white;
+    width: 280px;
+}
+
+.footer__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include font ($size: 20px, $height: 115%);
+    letter-spacing: 0.06em;
+    color: #F1CDB3;
+    border-bottom: 3px solid transparent;
+    /* transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
+    @extend %transition;
+
+    &_email {
+        margin-top: 9px;
     }
 
-    &__title {
-        @include title;
-        color: $white;
-        width: 280px;
-    }
+    &:hover {
+        color: $card-color;
 
-    &__item {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        font-size: 20px;
-        line-height: 115%;
-        letter-spacing: 0.06em;
-        color: #F1CDB3;
-        border-bottom: 3px solid transparent;
-        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
-
-        &_email {
-            margin-top: 9px;
+        & .footer__icon path {
+            fill: $card-color;
         }
     }
-    &__link {
-        display: inline-flex;
-        align-items: center;
-        gap: 20px;
+}
+
+.footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer__icon {
+    min-width: 22px;
+
+    & path {
+        transition: fill 0.3s ease-in-out;
     }
+}
 
-    &__icon {
-        min-width: 22px;
-
-        & path {
-            transition: fill 0.3s ease-in-out;
-        }
-
-    }
-
-    &__img {
-        margin-top: -17px;
-        grid-area: 1/3;
-    }
-
-    &__nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+.footer__img {
+    margin-top: -17px;
+    grid-area: 1/3;
 }
