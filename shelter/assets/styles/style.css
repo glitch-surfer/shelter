@@ -417,6 +417,11 @@ svg {
 .footer__item_email {
   margin-top: 9px;
 }
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+}
 .footer__icon {
   min-width: 22px;
 }
