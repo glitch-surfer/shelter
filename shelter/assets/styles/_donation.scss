@@ -31,8 +31,10 @@
     }
 
     &__link {
-        position: relative;
-        padding: 10px 15px 10px 60px;
+        /* position: relative; */
+        display: inline-flex;
+        gap: 15px;
+        padding: 10px 15px 10px 15px;
         text-align: center;
         margin-bottom: 20px;
         background-color: #F1CDB3;
@@ -45,9 +47,8 @@
         
     }
     &__icon {
-        display: inline-block;
-        position: absolute;
-        left: 15px;
+        /* position: absolute;
+        left: 15px; */
         background: url(../../../shelter/assets/icons/credit-card.svg) no-repeat center;
         background-size: contain;
         width: 30px;

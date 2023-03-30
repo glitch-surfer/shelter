@@ -26,7 +26,7 @@ a:link,
 a:visited {
   color: inherit;
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 ul,
@@ -119,13 +119,13 @@ svg {
 .pets {
   background-color: #F6F6F6;
   padding-bottom: 100px;
-  padding-top: 80px;
+  padding-top: 81px;
 }
 .pets__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 59px;
 }
 .pets__title {
   text-align: center;
