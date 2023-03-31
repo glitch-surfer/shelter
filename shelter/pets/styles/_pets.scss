@@ -17,24 +17,3 @@
     gap: 20px;
     @extend %transition;
 }
-
-.pagination__btn {
-    padding: 0;
-    width: 52px;
-    height: 52px;
-    background-color: transparent;
-    @include font (20px, 115%);
-    text-align: center;
-    letter-spacing: 0.06em;
-    color: #292929;
-
-    &[disabled] {
-        border-color: $header-text-color;
-        pointer-events: none;
-    }
-}
-
-.pagination__btn_central:active {
-    background-color: $main-color;
-    border-color: $main-color;
-}

@@ -1,6 +1,9 @@
 /* BUTTON */
 .btn {
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
     padding: 13px 43px;
     background: $main-color;
     border-radius: 100px;
@@ -17,7 +20,26 @@
     }
 }
 
-.btn__arrow-back {
+.pagination__btn {
+    padding: 0;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    @include font (20px, 115%);
+    letter-spacing: 0.06em;
+    color: #292929;
+
+    &[disabled] {
+        border-color: $header-text-color;
+        pointer-events: none;
+    }
+}
+
+.pagination__btn_central:active {
+    background-color: $main-color;
+    border-color: $main-color;
+}
+/* .btn__arrow-back {
     position: absolute;
     top: 22px;
     left: 17px;
@@ -27,4 +49,4 @@
     position: absolute;
     top: 22px;
     right: 17px;
-}
+} */
