@@ -851,18 +851,18 @@ svg {
 
 /* FOOTER */
 .footer {
-  background: url("../img/footer-background.png") center, no-repeat;
+  background: url("../../assets/img/footer-background.png") center, no-repeat;
   background-size: cover;
 }
 @media (max-width: 950px) {
   .footer {
-    background: url("../img/footer-gradient-background-768.jpg") center, no-repeat;
+    background: url("../../assets/img/footer-gradient-background-768.jpg") center, no-repeat;
     background-size: cover;
   }
 }
 @media (max-width: 450px) {
   .footer {
-    background: url("../img/footer-gradient-background-320.jpg") center, no-repeat;
+    background: url("../../assets/img/footer-gradient-background-320.jpg") center, no-repeat;
     background-size: cover;
   }
 }

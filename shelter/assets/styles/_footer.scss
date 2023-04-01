@@ -1,13 +1,13 @@
 /* FOOTER */
 .footer {
-    background: url('../img/footer-background.png') center, no-repeat;
+    background: url('../../assets/img/footer-background.png') center, no-repeat;
     background-size: cover;
     @include media-tablet {
-        background: url('../img/footer-gradient-background-768.jpg') center, no-repeat;
+        background: url('../../assets/img/footer-gradient-background-768.jpg') center, no-repeat;
         background-size: cover;
     }
     @include media-mobile-small {
-        background: url('../img/footer-gradient-background-320.jpg') center, no-repeat;
+        background: url('../../assets/img/footer-gradient-background-320.jpg') center, no-repeat;
         background-size: cover;
     }
 }

@@ -1,19 +1,47 @@
 /* PETS PAGE pets */
+.pets__container {
+    @include media-tablet {
+        margin-bottom: -24px;
+    }
+}
 .pets__title {
     margin-bottom: -1px;
 }
 
 .pets-page-slider {
+    align-self: stretch;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(18%, 270px));
     gap: 30px 40px;
+
+    @include media-tablet {
+        grid-template-columns: repeat(2, minmax(270px, 40%));
+        justify-content: center;
+        justify-items: center;
+        gap: 29px;
+    }
+
+}
+
+.pets-page-slider__item:nth-of-type(7),
+.pets-page-slider__item:nth-of-type(8),
+.pets-page-slider__item:nth-of-type(9) {
+    @include media-tablet {
+        display: none;
+    }
 }
 
 .pagination {
-    margin-bottom: 2px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     @extend %transition;
+}
+
+.pets__container {
+    @include media-tablet {
+        gap: 30px;
+    }
 }
