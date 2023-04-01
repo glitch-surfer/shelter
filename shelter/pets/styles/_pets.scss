@@ -3,22 +3,27 @@
     @include media-tablet {
         margin-bottom: -24px;
     }
+    @include media-mobile-small {
+        margin-bottom: 0;
+    }
 }
-.pets__title {
+/* .pets__title {
     margin-bottom: -1px;
-}
+} */
 
 .pets-page-slider {
     align-self: stretch;
     display: grid;
     grid-template-columns: repeat(4, minmax(18%, 270px));
-    gap: 30px 40px;
+    gap: 28px 40px;
 
     @include media-tablet {
-        grid-template-columns: repeat(2, minmax(270px, 40%));
+        grid-template-columns: repeat(2, minmax(35%, 270px));
         justify-content: center;
         justify-items: center;
-        gap: 29px;
+    }
+    @include media-mobile-small {
+        grid-template-columns: auto;
     }
 
 }
@@ -30,18 +35,36 @@
         display: none;
     }
 }
+.pets-page-slider__item:nth-of-type(4),
+.pets-page-slider__item:nth-of-type(5),
+.pets-page-slider__item:nth-of-type(6) {
+    @include media-mobile-small {
+        display: none;
+    }
+}
+
 
 .pagination {
-    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     @extend %transition;
+    @include media-tablet {
+        margin-top: 10px;
+    }
+    @include media-mobile-small {
+        margin-top: 0;
+        gap: 10px;
+    }
+
 }
 
 .pets__container {
     @include media-tablet {
         gap: 30px;
+    }
+    @include media-mobile-small {
+        gap: 43px;
     }
 }
