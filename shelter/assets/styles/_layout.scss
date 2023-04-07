@@ -10,9 +10,7 @@ html {
     font-family: $main-font, $paragraph-font, sans-serif;
     scroll-behavior: smooth;
 }
-body.is-active {
-    overflow: hidden;
-}
+
 a,
 a:link,
 a:visited {

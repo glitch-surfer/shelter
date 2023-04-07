@@ -101,72 +101,101 @@ const petsData = [
 /* BURGER */
 const burgerIcon = document.getElementById('burger-icon')
 const burgerMenu = document.getElementById('burger-menu')
-const overlay = document.querySelector('.overlay')
 
-burgerIcon.addEventListener('click', openBurgerMenu)
-overlay.addEventListener('click', openBurgerMenu)
-burgerMenu.addEventListener('click', openBurgerMenu)
+burgerIcon.addEventListener('click', burgerMenuHandler)
+burgerMenu.addEventListener('click', burgerMenuHandler)
 
-function openBurgerMenu(event) {
-    /* if (!burgerIcon.classList.value.includes('is-active')) {
+function burgerMenuHandler(event) {
+
+    //make menu active
+    if (!burgerIcon.classList.contains('is-active')) {
         burgerIcon.classList.add('is-active')
         burgerMenu.classList.add('is-active')
-        overlay.classList.add('is-active')
+        generateOverlay()
         document.body.style.overflow = "hidden"
+
+        //add listener to overlay
+        document.querySelector('.overlay').addEventListener('click', burgerMenuHandler)
     }
+    //make menu inActive
     else if (!event.target.classList.contains('burger-menu')) {
         burgerIcon.classList.remove('is-active')
         burgerMenu.classList.remove('is-active')
-        overlay.classList.remove('is-active')
+        document.querySelector('.overlay').remove()
         document.body.style.overflow = ""
-    } */
-    if (!event.target.classList.contains('burger-menu')) {
-        /* burgerIcon.classList.toggle('is-active')
-        burgerMenu.classList.toggle('is-active')
-        overlay.classList.toggle('is-active') */
-        document.body.classList.toggle('is-active')
     }
 }
+/* if (!event.target.classList.contains('burger-menu')) {
+    burgerIcon.classList.toggle('is-active')
+    burgerMenu.classList.toggle('is-active')
+    overlay.classList.toggle('is-active')
+
+    //document.body.classList.toggle('is-active')
+} */
+function generateOverlay() {
+    let overlay = document.createElement('div')
+    overlay.classList.add('overlay')
+    document.body.append(overlay)
+}
+
 
 /* POP UP */
 
+document.querySelector('.card-list').addEventListener('click', (event) => {
+    if (event.target.closest('.card')) {
 
-    document.querySelector('.card-list').addEventListener('click', (event) => {
-        console.log(event.target)
-        if (event.target.closest('.card')) {
-            let cardId = event.target.closest('.card').getAttribute('data-id')
-            let cardData = getPetsData(cardId)
-            let modalWindow = generatModal(cardData)
-            document.body.append(modalWindow)
-        }
-    })
+        //select pets data
+        let cardId = event.target.closest('.card').dataset.id
+        let cardData = getPetsData(cardId)
+
+        //make a modal and overlay
+        let modalWindow = generateModal(cardData)
+        generateOverlay()
+        document.querySelector('.overlay').append(modalWindow)
+        document.body.style.overflow = "hidden"
+    }
+    document.querySelector('.overlay').addEventListener('click', closePopup)
+})
 
 
 const getPetsData = (id) => {
     return petsData.find(card => card.id == id)
 }
-const generatModal = (cardData) => {
+const generateModal = (cardData) => {
 
     let card = document.createElement('div')
     card.classList.add('modal')
 
-    let template = `<img class="card__img" src="${cardData.img}" alt="animal">
-    <button class="modal__btn"></button>
+    let template = `<img class="modal__img" src="${cardData.img}" alt="animal">
+    <button class="btn slider__btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003V6.00003Z" fill="#292929"/>
+    </svg></button>
     <div class="modal__wrapper">
         <div class="modal__title">
-            <h3 class="modal__title">${cardData.name}</h3>
+            <h3 class="modal__name">${cardData.name}</h3>
             <p class="modal__subtitle">${cardData.type} - ${cardData.breed}</p>
         </div>
-        <div class="modal__description"${cardData.description}</div>
+        <div class="modal__description">${cardData.description}</div>
         <ul class="modal__list">
-            <li class="modal__item"><span class="modal__text"><b>Age:</b>${cardData.age}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b>${"".concat(...cardData.inoculations || cardData.inoculations[0])}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Disease:</b>${"".concat(...cardData.diseases) || cardData.disease[0]}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Parasites:</b>${"".concat(...cardData.parasites) || cardData.parasites[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Age:</b> ${cardData.age}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b> ${"".concat(...cardData.inoculations || cardData.inoculations[0])}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Disease:</b> ${"".concat(...cardData.diseases) || cardData.diseases[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Parasites:</b> ${"".concat(...cardData.parasites) || cardData.parasites[0]}</span></li>
         </ul>
     </div>`
 
     card.innerHTML = template
 
     return card
+}
+
+const closePopup = (event) => {
+    if (!event.target.closest('.modal')) {
+        document.querySelector('.overlay').remove()
+        document.body.style.overflow = ""
+    }
+    else if (event.target.closest('.btn')) {
+        document.querySelector('.overlay').remove()
+        document.body.style.overflow = ""
+    }
 }
