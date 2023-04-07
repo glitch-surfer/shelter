@@ -1005,7 +1005,7 @@ svg {
 }
 
 .burger-menu {
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 0;
   right: -150%;
