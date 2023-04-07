@@ -27,7 +27,7 @@
   font-weight: 400;
 }
 
-.pagination, .pets-nav-hover, .overlay.is-active, .burger-menu, .burger, .footer__item, .card, .btn, .nav__item {
+.pagination, .pets-nav-hover, body.is-active .overlay, .burger-menu, .burger, .footer__item, .card, .btn, .nav__item {
   transition: all 0.3s ease-in-out;
 }
 
@@ -47,7 +47,7 @@
   font-weight: 400;
 }
 
-.pagination, .pets-nav-hover, .overlay.is-active, .burger-menu, .burger, .footer__item, .card, .btn, .nav__item {
+.pagination, .pets-nav-hover, body.is-active .overlay, .burger-menu, .burger, .footer__item, .card, .btn, .nav__item {
   transition: all 0.3s ease-in-out;
 }
 
@@ -60,6 +60,10 @@
 html {
   font-family: "Georgia", "Arial", sans-serif;
   scroll-behavior: smooth;
+}
+
+body.is-active {
+  overflow: hidden;
 }
 
 a,
@@ -548,7 +552,7 @@ svg {
     display: block;
   }
 }
-.burger.is-active {
+body.is-active .burger {
   transform: rotate(-90deg);
 }
 
@@ -576,11 +580,11 @@ svg {
   color: #CDCDCD;
   background-color: #292929;
 }
-.burger-menu.is-active {
+body.is-active .burger-menu {
   right: 0;
 }
 
-.overlay.is-active {
+body.is-active .overlay {
   position: fixed;
   top: 0;
   left: 0;

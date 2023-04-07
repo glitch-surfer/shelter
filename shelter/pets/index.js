@@ -8,7 +8,7 @@ overlay.addEventListener('click', openBurgerMenu)
 burgerMenu.addEventListener('click', openBurgerMenu)
 
 function openBurgerMenu(event) {
-    if (!burgerIcon.classList.value.includes('is-active')) {
+    /* if (!burgerIcon.classList.value.includes('is-active')) {
         burgerIcon.classList.add('is-active')
         burgerMenu.classList.add('is-active')
         overlay.classList.add('is-active')
@@ -19,5 +19,11 @@ function openBurgerMenu(event) {
         burgerMenu.classList.remove('is-active')
         overlay.classList.remove('is-active')
         document.body.style.overflow = ""
+    } */
+    if (!event.target.classList.contains('burger-menu')) {
+        /* burgerIcon.classList.toggle('is-active')
+        burgerMenu.classList.toggle('is-active')
+        overlay.classList.toggle('is-active') */
+        document.body.classList.toggle('is-active')
     }
 }

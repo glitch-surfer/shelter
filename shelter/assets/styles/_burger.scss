@@ -31,7 +31,7 @@
         display: block
     }
 
-    &.is-active {
+    body.is-active & {
         transform: rotate(-90deg);
     }
 }
@@ -59,12 +59,13 @@
     background-color: $color-dark;
     @extend %transition;
 
-    &.is-active {
+    body.is-active & {
         right: 0;
     }
 }
 
-.overlay.is-active {
+
+body.is-active .overlay {
     position: fixed;
     top: 0;
     left: 0;
