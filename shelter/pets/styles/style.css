@@ -166,7 +166,7 @@ svg {
   border-color: #F1CDB3;
 }
 
-.nav__is-active {
+.nav_is-active {
   color: #FAFAFA;
   border-color: #F1CDB3;
   pointer-events: none;
@@ -570,7 +570,7 @@ svg {
   /* transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out; */
 }
 
-.nav__is-active {
+.nav_is-active {
   color: #545454;
   border-color: #F1CDB3;
   pointer-events: none;
