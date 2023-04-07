@@ -1,20 +1,23 @@
-console.log(`Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14 (Выполнено)
+/* BURGER */
+const burgerIcon = document.getElementById('burger-icon')
+const burgerMenu = document.getElementById('burger-menu')
+const overlay = document.querySelector('.overlay')
 
-Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14 (Выполнено)
+burgerIcon.addEventListener('click', openBurgerMenu)
+overlay.addEventListener('click', openBurgerMenu)
+burgerMenu.addEventListener('click', openBurgerMenu)
 
-Вёрстка страницы Main соответствует макету при ширине экрана 320px: +14 (Выполнено)
-
-Вёрстка страницы Pets соответствует макету при ширине экрана 1280px: +6 (Выполнено)
-
-Вёрстка страницы Pets соответствует макету при ширине экрана 768px: +6 (Выполнено)
-
-Вёрстка страницы Pets соответствует макету при ширине экрана 320px: +6 (Выполнено)
-
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки, справа от отдельных блоков не появляются белые поля. Весь контент страницы при этом сохраняется: не обрезается и не удаляется: +20 (Выполнено)
-
-Верстка резиновая: при плавном изменении размера экрана от 1280px до 320px верстка подстраивается под этот размер, элементы верстки меняют свои размеры и расположение, не наезжают друг на друга, изображения могут менять размер, но сохраняют правильные пропорции (Примеры неправильной и правильной реализации): +8 (Выполнено)
-
-При ширине экрана меньше 768px на обеих страницах меню в хедере скрывается, появляется иконка бургер-меню: +4 (Выполнено)
-
-Верстка обеих страниц валидная: для проверки валидности вёрстки используйте сервис https://validator.w3.org/ : +8 (Выполнено)
-ИТОГ 100 баллов`)
+function openBurgerMenu(event) {
+    if (!burgerIcon.classList.value.includes('is-active')) {
+        burgerIcon.classList.add('is-active')
+        burgerMenu.classList.add('is-active')
+        overlay.classList.add('is-active')
+        document.body.style.overflow = "hidden"
+    }
+    else if (!event.target.classList.contains('burger-menu')) {
+        burgerIcon.classList.remove('is-active')
+        burgerMenu.classList.remove('is-active')
+        overlay.classList.remove('is-active')
+        document.body.style.overflow = ""
+    }
+}
