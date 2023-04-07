@@ -27,7 +27,7 @@
   font-weight: 400;
 }
 
-.footer__item, .donation__link, .card, .btn, .nav__item {
+.overlay.is-active, .burger-menu, .burger, .footer__item, .donation__link, .card, .btn, .nav__item {
   transition: all 0.3s ease-in-out;
 }
 
@@ -80,14 +80,6 @@ svg {
 }
 
 /* HEADER */
-.burger__line, .burger::after, .burger::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #F1CDB3;
-}
-
 .header__container {
   display: flex;
   padding-top: 30px;
@@ -150,31 +142,6 @@ svg {
   color: #FAFAFA;
   border-color: #F1CDB3;
   pointer-events: none;
-}
-
-.burger {
-  display: none;
-  position: relative;
-  width: 30px;
-  height: 22px;
-}
-.burger::before {
-  top: 0;
-  left: 0;
-}
-.burger::after {
-  bottom: 0;
-  left: 0;
-}
-@media (max-width: 767px) {
-  .burger {
-    display: block;
-  }
-}
-
-.burger__line {
-  top: calc(50% - 1px);
-  left: 0;
 }
 
 /* HERO */
@@ -997,4 +964,76 @@ svg {
   .footer__img {
     max-width: 87%;
   }
+}
+
+/* BURGER */
+.burger__line, .burger::after, .burger::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #F1CDB3;
+}
+
+.burger {
+  display: none;
+  position: relative;
+  z-index: 11;
+  width: 30px;
+  height: 22px;
+}
+.burger::before {
+  top: 0;
+  left: 0;
+}
+.burger::after {
+  bottom: 0;
+  left: 0;
+}
+@media (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+}
+.burger.is-active {
+  transform: rotate(-90deg);
+}
+
+.burger__line {
+  top: calc(50% - 1px);
+  left: 0;
+}
+
+.burger-menu {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: -150%;
+  width: 320px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  font-family: "Arial";
+  font-size: 32px;
+  line-height: 160%;
+  font-weight: 400;
+  color: #CDCDCD;
+  background-color: #292929;
+}
+.burger-menu.is-active {
+  right: 0;
+}
+
+.overlay.is-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: #292929;
+  opacity: 0.5;
 }/*# sourceMappingURL=style.css.map */
