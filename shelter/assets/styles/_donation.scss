@@ -1,8 +1,13 @@
 /* DONATION */
 .donation {
     background-color: $main-background;
-    padding-top: 80px;
+    padding-top: 79px;
     padding-bottom: 100px;
+
+    @include media-mobile-small {
+        padding-top: 42px;
+        padding-bottom: 43px;
+    }
 }
 
 .donation__container {
@@ -10,33 +15,66 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+
+    @include media-tablet {
+        flex-direction: column-reverse;
+        gap: 60px;
+    }
+
+    @include media-mobile-small {
+        flex-direction: column-reverse;
+        gap: 42px;
+    }
 }
 
 .donation__wraper {
     max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+
+    @include media-mobile-small {
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .donation__title {
     @extend %title;
     max-width: 300px;
-    margin-bottom: 20px;
     color: $title-color;
+
+    @include media-mobile-small {
+        max-width: 75%;
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 2px;
+    }
 }
 
 .donation__text {
-    margin-bottom: 20px;
     @include font ($size: 15px, $height: 110%);
     letter-spacing: 0.06em;
     color: $title-color;
+
+    @include media-mobile-small {
+        @include font ($size: 15px, $height: 110%);
+        letter-spacing: normal;
+        margin-bottom: 5px;
+    }
 }
 
 .donation__link {
     /* position: relative; */
     display: inline-flex;
     gap: 15px;
-    padding: 10px 15px 10px 15px;
+    white-space: nowrap;
+    padding: 10px 15px 10px;
+    align-items: center;
     text-align: center;
-    margin-bottom: 20px;
     background-color: #F1CDB3;
     @include font ($size: 20px, $height: 23px);
     letter-spacing: 0.06em;
@@ -44,8 +82,14 @@
     border-radius: 9px;
     /* transition: background-color 0.3s ease-in-out; */
     @extend %transition;
+
     &:hover {
         background-color: $btn-hovered-color;
+    }
+
+    @include media-mobile-small {
+        @include font ($size: 15px, $height: 110%);
+        padding: 10px 14px 10px;
     }
 
 }
@@ -63,4 +107,14 @@
     @include font ($size: 12px, $height: 150%, $weight: 400, $family: $paragraph-font);
     font-style: italic;
     color: $legal-text-color;
+
+    @include media-mobile-small {
+        text-align: justify;
+    }
+}
+
+.donation__img {
+    @include media-mobile-small {
+        max-width: 86%;
+    }
 }

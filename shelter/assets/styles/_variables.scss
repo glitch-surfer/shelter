@@ -2,6 +2,11 @@
 
 $max-width: 1280px;
 $container-padding: 40px;
+$container-tablet-padding: 30px;
+$container-mobile-padding: 10px;
+$tablet-width: 950px;
+$mobile-width: 767px;
+$mobile-small-width: 450px;
 
 //fonts
 
@@ -44,4 +49,15 @@ $btn-hovered-color: #FDDCC4;
 }
 %transition {
     transition: all 0.3s ease-in-out;
+}
+
+//MEDIA
+@mixin media-tablet {
+    @media (max-width: $tablet-width) { @content;}
+}
+@mixin media-mobile-big {
+    @media (max-width: $mobile-width) { @content;}
+}
+@mixin media-mobile-small {
+    @media (max-width: $mobile-small-width) { @content;}
 }

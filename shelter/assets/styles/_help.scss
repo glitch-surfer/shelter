@@ -3,6 +3,11 @@
 .help {
     padding-top: 80px;
     padding-bottom: 100px;
+
+    @include media-mobile-small {
+        padding-top: 42px;
+        padding-bottom: 42px;
+    }
 }
 
 .help__container {
@@ -11,19 +16,37 @@
     align-items: center;
     gap: 59px;
     text-align: center;
+
+    @include media-mobile-small {
+        gap: 42px;
+    }
 }
 
 .help__title {
     max-width: 310px;
     @extend %title;
-}
 
+    @include media-mobile-small {
+        font-size: 25px;
+        max-width: 74%;
+    }
+}
 
 .help-list {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 55px 120px;
+
+    @include media-tablet {
+        gap: 55px 53px;
+    }
+
+    @include media-mobile-small {
+        gap: 30px;
+        justify-content: flex-start;
+        transform: translateX(5px);
+    }
 }
 
 .help-list__item {
@@ -32,6 +55,14 @@
     align-items: center;
     gap: 30px;
 
+    @include media-tablet {
+        flex: 0 1 25%;
+    }
+
+    @include media-mobile-small {
+        flex: 0 0 43%;
+        gap: 20px;
+    }
 }
 
 .help-list__icon {
@@ -74,10 +105,20 @@
     &_sleeping-areas {
         background: url(../../../shelter/assets/icons/sleeping-area.svg) no-repeat center;
     }
+
+    @include media-mobile-small {
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+    }
 }
 
 .help-list__subtitle {
     @include font ($size: 20px, $height: 23px);
     letter-spacing: 0.06em;
     color: $title-color;
+
+    @include media-mobile-small {
+        @include font ($size: 15px, $height: 110%)
+    }
 }

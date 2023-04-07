@@ -33,4 +33,12 @@ svg {
     margin: auto;
     padding-left: $container-padding;
     padding-right: $container-padding;
+    @include media-tablet {
+        padding-left: $container-tablet-padding;
+        padding-right: $container-tablet-padding;
+    }
+    @include media-mobile-big {
+        padding-left: $container-mobile-padding;
+        padding-right: $container-mobile-padding;
+    }
 }

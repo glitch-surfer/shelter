@@ -1,16 +1,31 @@
 /* HERO */
 
 .hero {
-    background: url("../../../shelter/assets/img/start-screen-gradient-background.png") center no-repeat;
+    background: url("../img/start-screen-gradient-background.png") center no-repeat;
     background-size: cover;
     margin-top: -180px;
     margin-bottom: 80px;
+    @include media-tablet {
+        background: url("../img/start-screen-gradient-background-768.jpg") center no-repeat;
+        background-size: cover;
+    }
+    @include media-mobile-small {
+        margin-bottom: 41px;
+        background: url("../img/start-screen-gradient-background-320.jpg") center no-repeat;
+        background-size: cover;
+    }
 }
 
 .hero__container {
     display: grid;
     grid-template-columns: auto 58%;
     grid-template-rows: 180px 80%;
+    @include media-tablet {
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        justify-items: center;
+        gap: 100px;
+    }
 }
 
 /* background-color: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20; */
@@ -18,18 +33,39 @@
     background-repeat: no-repeat;
     background-position: center; */
 .hero__wrapper {
-    padding-top: 163px;
+    margin-top: 163px;
     grid-area: 2/1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 42px;
+    @include media-tablet {
+        margin-top: 150px;
+        max-width: 569px;
+        grid-area: span 1;
+        align-items: center;
+    }
+    @include media-mobile-big {
+        text-align: center;
+        width: 97%;
+    }
 }
 
 .hero__title {
     max-width: 310px;
     @include font ($size: 44px, $height: 130%);
     color: $white;
+    @include media-tablet {
+        align-self: flex-start;
+    }
+    @include media-mobile-big {
+        align-self: center;
+    }
+    @include media-mobile-small {
+        @include font ($size: 25px, $height: 130%);
+        width: 81%;
+        letter-spacing: 0.06em;
+    }
 }
 
 .hero__subtitle {
@@ -40,4 +76,14 @@
 
 .hero__img {
     grid-area: 2/2;
+    @include media-tablet {
+        width: 80%;
+        grid-area: span 1;
+        justify-self: end;
+    }
+    @include media-mobile-big {
+        margin-top: 5px;
+        width: 87%;
+    }
+
 }
