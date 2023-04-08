@@ -312,6 +312,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function forward() {
+        //disabled button
+        forwardBtn.removeEventListener('click', forward)
         //start animation
         sliderActive.classList.add('animation-move-left-active')
         sliderForward.classList.add('animation-move-left-forward')
@@ -342,6 +344,8 @@ document.addEventListener('DOMContentLoaded', function () {
             //come back
             sliderActive.classList.remove('animation-move-left-active')
             sliderForward.classList.remove('animation-move-left-forward')
+            //activate button again
+            forwardBtn.addEventListener('click', forward)
         })
         //add new nextArr
         nextArr = []
@@ -367,9 +371,13 @@ document.addEventListener('DOMContentLoaded', function () {
     <button class="card__btn btn">Learn more</button>
 </div>
     </div>`
+    
+    
     }
 
     function backward() {
+        backwardBtn.removeEventListener('click', backward)
+
         sliderActive.classList.add('animation-move-right-active')
         sliderBackward.classList.add('animation-move-right-backward')
         sliderActive.addEventListener('animationend', () => {
@@ -397,6 +405,8 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>`
             sliderActive.classList.remove('animation-move-right-active')
             sliderBackward.classList.remove('animation-move-right-backward')
+
+            backwardBtn.addEventListener('click', backward)
         })
         pastArr = []
         generateNextArr(pastArr, currArr)
