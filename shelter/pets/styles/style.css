@@ -304,15 +304,74 @@ svg {
   }
 }
 
-.slider__content {
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes move-left-forward {
+  to {
+    right: 0;
+  }
+}
+@keyframes move-left-active {
+  to {
+    right: 150%;
+  }
+}
+@keyframes move-right-backward {
+  to {
+    left: 0;
+  }
+}
+@keyframes move-right-active {
+  to {
+    right: -150%;
+  }
+}
+.animation-move-left-forward {
+  animation: move-left-forward 0.7s;
+}
+
+.animation-move-left-active {
+  animation: move-left-active 0.7s;
+}
+
+.animation-move-right-backward {
+  animation: move-right-backward 0.7s;
+}
+
+.animation-move-right-active {
+  animation: move-right-active 0.7s;
+}
+
+.carousel__content {
   display: flex;
   align-items: center;
   gap: 7.031vw;
 }
 @media (max-width: 950px) {
-  .slider__content {
+  .carousel__content {
     gap: 40px;
   }
+}
+
+.carousel__content_active {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.carousel__content_forward {
+  position: absolute;
+  top: 0;
+  right: -150%;
+}
+
+.carousel__content_backward {
+  position: absolute;
+  top: 0;
+  left: -150%;
 }
 
 @media (max-width: 950px) {

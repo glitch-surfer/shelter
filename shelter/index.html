@@ -84,15 +84,17 @@
                 <h2 class="pets__title">Our friends who are&nbsp;looking for a house</h2>
                 <ul class="slider pets__slider">
                     <li class="slider__item">
-                        <button class="btn slider__btn">
+                        <button class="btn slider__btn" id="btn-backward">
                             <svg class="btn__arrow-back" width="14" height="6" viewBox="0 0 14 6" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="#292929" />
                             </svg></button>
                     </li>
-                    <li class="slider__item">
-                        <ul class="card-list slider__content">
-                            <li class="card-list__item card-list__item_1">
+                    <li class="slider__item carousel">
+                            <div class="card-list carousel__content carousel__content_backward"></div>
+                            <div class="card-list carousel__content carousel__content_active"></div>
+                            <div class="card-list carousel__content carousel__content_forward"></div>
+                        <!-- <li class="card-list__item card-list__item_1">
                                 <div class="card slider__card card__interactive" data-id="5">
                                     <img class="card__img" src="./assets/img/pets/pets-katrine.png" alt="animal">
                                     <h3 class="card__subtitle">Katrine</h3>
@@ -112,11 +114,10 @@
                                     <h3 class="card__subtitle">Woody</h3>
                                     <button class="card__btn btn">Learn more</button>
                                 </div>
-                            </li>
-                        </ul>
+                            </li> -->
                     </li>
                     <li class="slider__item">
-                        <button class="btn slider__btn">
+                        <button class="btn slider__btn" id="btn-forward">
                             <svg class="btn__arrow-forward" width="14" height="6" viewBox="0 0 14 6" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 4V2L11 2V0L14 3L11 6V4L0 4Z" fill="#292929" />
