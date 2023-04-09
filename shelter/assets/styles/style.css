@@ -141,7 +141,7 @@ svg {
 .nav_is-active {
   color: #FAFAFA;
   border-color: #F1CDB3;
-  pointer-events: none;
+  cursor: not-allowed;
 }
 
 /* HERO */
