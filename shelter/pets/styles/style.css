@@ -222,6 +222,10 @@ svg {
     top: 22px;
     right: 17px;
 } */
+.pagination__btn:disabled path {
+  fill: #CDCDCD;
+}
+
 /* PETS */
 .pets {
   background-color: #F6F6F6;
