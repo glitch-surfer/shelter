@@ -7,9 +7,6 @@
         margin-bottom: 0;
     }
 }
-/* .pets__title {
-    margin-bottom: -1px;
-} */
 
 .pets-page-slider {
     align-self: stretch;
@@ -27,10 +24,9 @@
     }
 
 }
-
-.pets-page-slider__item:nth-of-type(7),
-.pets-page-slider__item:nth-of-type(8),
-.pets-page-slider__item:nth-of-type(9) {
+//no need with working js pagination (dynamic content generation according window size)
+/* .pets-page-slider__item:nth-of-type(7),
+.pets-page-slider__item:nth-of-type(8) {
     @include media-tablet {
         display: none;
     }
@@ -41,7 +37,7 @@
     @include media-mobile-small {
         display: none;
     }
-}
+} */
 
 
 .pagination {

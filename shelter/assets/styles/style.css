@@ -302,9 +302,10 @@ svg {
   pointer-events: none;
 }
 
-.pagination__btn_central:active {
+.pagination__btn_central {
   background-color: #F1CDB3;
   border-color: #F1CDB3;
+  pointer-events: none;
 }
 
 /* .btn__arrow-back {

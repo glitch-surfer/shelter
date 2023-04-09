@@ -98,10 +98,18 @@ const petsData = [
 ]
 
 
-/* BURGER */
+/* CONST */
 const burgerIcon = document.getElementById('burger-icon')
 const burgerMenu = document.getElementById('burger-menu')
+const paginationContainer = document.getElementById('pets-pagination')
+const paginationBtnFirst = document.getElementById('pagination-btn-first')
+const paginationBtnPrev = document.getElementById('pagination-btn-prev')
+const paginationBtnCentral = document.getElementById('pagination-btn-central')
+const paginationBtnNext = document.getElementById('pagination-btn-next')
+const paginationBtnLast = document.getElementById('pagination-btn-last')
 
+
+/* BURGER */
 burgerIcon.addEventListener('click', burgerMenuHandler)
 burgerMenu.addEventListener('click', burgerMenuHandler)
 
@@ -199,3 +207,109 @@ const closePopup = (event) => {
         document.body.style.overflow = ""
     }
 }
+
+/* PAGINATION */
+
+let paginationArr = []
+let cardsOnPage = 8
+/* let numberOfPages = countNumberOfPages(cardsOnPage) */
+
+function countNumberOfPages(cards) {
+    return 48 / cards
+}
+
+function generatePaginationArr(arr) {
+
+    for (let i = 1; i <= countNumberOfPages(cardsOnPage); ++i) {
+
+        let result = []
+        while (result.length < 8) {
+            let randomItemIndex = Math.round(Math.random() * (cardsOnPage - 1))
+            if (!result.includes(petsData[randomItemIndex]))
+                result.push(petsData[randomItemIndex])
+        }
+
+        for (let j = 0; j < cardsOnPage; j++) {
+            arr.push(result[j])
+        }
+    }
+}
+
+generatePaginationArr(paginationArr)
+
+
+function generatePage(pageNumber) {
+    paginationContainer.innerHTML = ''
+    for (let i = (pageNumber * cardsOnPage - cardsOnPage); i < pageNumber * cardsOnPage; ++i) {
+        let card = `<li class="pets-page-slider__item">
+        <div class="card pets-page-slider__card card__interactive" data-id="${paginationArr[i].id}">
+            <img class="card__img" src="${paginationArr[i].img}" alt="${paginationArr[i].breed}">
+            <h3 class="card__subtitle subtitle">${paginationArr[i].name}</h3>
+            <button class="card__btn btn">Learn more</button>
+        </div>
+        </li>`
+        paginationContainer.insertAdjacentHTML('beforeend', card)
+    }
+}
+
+generatePage(1)
+
+paginationBtnNext.addEventListener('click', () => {
+    let currentPage = +paginationBtnCentral.innerHTML
+    generatePage(currentPage + 1)
+    paginationBtnCentral.innerHTML = currentPage + 1
+    if (paginationBtnCentral.innerHTML == countNumberOfPages(cardsOnPage)) {
+        paginationBtnNext.setAttribute('disabled', '')
+        paginationBtnLast.setAttribute('disabled', '')
+    }
+    paginationBtnFirst.removeAttribute('disabled')
+    paginationBtnPrev.removeAttribute('disabled')
+})
+
+paginationBtnPrev.addEventListener('click', () => {
+    let currentPage = +paginationBtnCentral.innerHTML
+    generatePage(currentPage - 1)
+    paginationBtnCentral.innerHTML = currentPage - 1
+
+    if (paginationBtnCentral.innerHTML == 1) {
+        paginationBtnFirst.setAttribute('disabled', '')
+        paginationBtnPrev.setAttribute('disabled', '')
+    }
+    paginationBtnLast.removeAttribute('disabled')
+    paginationBtnNext.removeAttribute('disabled')
+})
+
+paginationBtnLast.addEventListener('click', () => {
+    generatePage(countNumberOfPages(cardsOnPage))
+    paginationBtnCentral.innerHTML = countNumberOfPages(cardsOnPage)
+
+    paginationBtnNext.setAttribute('disabled', '')
+    paginationBtnLast.setAttribute('disabled', '')
+    paginationBtnFirst.removeAttribute('disabled')
+    paginationBtnPrev.removeAttribute('disabled')
+})
+function moveToFirstPage() {
+    generatePage(1)
+    paginationBtnCentral.innerHTML = 1
+
+    paginationBtnFirst.setAttribute('disabled', '')
+    paginationBtnPrev.setAttribute('disabled', '')
+    paginationBtnNext.removeAttribute('disabled')
+    paginationBtnLast.removeAttribute('disabled')
+}
+paginationBtnFirst.addEventListener('click', moveToFirstPage)
+
+window.addEventListener('resize', () => {
+    if (document.documentElement.clientWidth > 950) {
+        cardsOnPage = 8
+        moveToFirstPage()
+    }
+    if (document.documentElement.clientWidth <= 950) {
+        cardsOnPage = 6
+        moveToFirstPage()
+    }
+    if (document.documentElement.clientWidth <= 450) {
+        cardsOnPage = 3
+        moveToFirstPage()
+    }
+})

@@ -371,8 +371,8 @@ document.addEventListener('DOMContentLoaded', function () {
     <button class="card__btn btn">Learn more</button>
 </div>
     </div>`
-    
-    
+
+
     }
 
     function backward() {
@@ -435,4 +435,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     forwardBtn.addEventListener('click', forward)
     backwardBtn.addEventListener('click', backward)
+
 })

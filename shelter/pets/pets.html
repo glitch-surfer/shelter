@@ -47,8 +47,8 @@
         <section class="pets">
             <div class="container pets__container">
                 <h1 class="pets__title">Our friends who are&nbsp;looking for a house</h1>
-                <ul class="pets-page-slider pets__pets-page-slider">
-                    <li class="pets-page-slider__item pets-page-slider__item_1">
+                <ul class="pets-page-slider pets__pets-page-slider" id="pets-pagination">
+                    <!-- <li class="pets-page-slider__item pets-page-slider__item_1">
                         <div class="card pets-page-slider__card card__interactive" data-id="5">
                             <img class="card__img" src="../assets/img/pets/pets-katrine.png" alt="animal">
                             <h3 class="card__subtitle">Katrine</h3>
@@ -103,11 +103,11 @@
                             <h3 class="card__subtitle">Freddie</h3>
                             <button class="card__btn btn">Learn more</button>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
                 <ul class="pagination pets__pagination">
                     <li class="pagination__item">
-                        <button class="btn pagination__btn" disabled>
+                        <button class="btn pagination__btn" disabled id="pagination-btn-first">
                             <svg width="25" height="11" viewBox="0 0 25 11" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -117,7 +117,7 @@
                         </button>
                     </li>
                     <li class="pagination__item">
-                        <button class="btn pagination__btn" disabled>
+                        <button class="btn pagination__btn" disabled id="pagination-btn-prev">
                             <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -127,12 +127,12 @@
                         </button>
                     </li>
                     <li class="pagination__item">
-                        <button class="btn pagination__btn pagination__btn_central">
+                        <button class="btn pagination__btn pagination__btn_central" id="pagination-btn-central">
                             1
                         </button>
                     </li>
                     <li class="pagination__item">
-                        <button class="btn pagination__btn">
+                        <button class="btn pagination__btn" id="pagination-btn-next">
                             <svg width="10" height="11" viewBox="0 0 10 11" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -142,7 +142,7 @@
                         </button>
                     </li>
                     <li class="pagination__item">
-                        <button class="btn pagination__btn">
+                        <button class="btn pagination__btn" id="pagination-btn-last">
                             <svg width="25" height="11" viewBox="0 0 25 11" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path

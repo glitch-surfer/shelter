@@ -36,9 +36,10 @@
     }
 }
 
-.pagination__btn_central:active {
+.pagination__btn_central {
     background-color: $main-color;
     border-color: $main-color;
+    pointer-events: none;
 }
 /* .btn__arrow-back {
     position: absolute;
