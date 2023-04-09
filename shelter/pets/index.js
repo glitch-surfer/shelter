@@ -186,9 +186,9 @@ const generateModal = (cardData) => {
         <div class="modal__description">${cardData.description}</div>
         <ul class="modal__list">
             <li class="modal__item"><span class="modal__text"><b>Age:</b> ${cardData.age}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b> ${"".concat(...cardData.inoculations || cardData.inoculations[0])}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Disease:</b> ${"".concat(...cardData.diseases) || cardData.diseases[0]}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Parasites:</b> ${"".concat(...cardData.parasites) || cardData.parasites[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b> ${cardData.inoculations.join(', ') || cardData.inoculations[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Disease:</b> ${cardData.diseases.join(', ') || cardData.diseases[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Parasites:</b> ${cardData.parasites.join(', ') || cardData.parasites[0]}</span></li>
         </ul>
     </div>`
 

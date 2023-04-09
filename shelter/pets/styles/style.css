@@ -661,16 +661,34 @@ svg {
   position: absolute;
   z-index: 10;
   width: 70%;
-  padding: 20px;
+  padding: 5px 20px 5px 5px;
   display: flex;
   align-items: center;
   gap: 30px;
   background: #FAFAFA;
   border-radius: 9px;
 }
+@media (max-width: 950px) {
+  .modal {
+    padding-right: 10px;
+    gap: 10px;
+    width: 82%;
+  }
+}
+@media (max-width: 767px) {
+  .modal {
+    justify-content: center;
+    padding: 10px;
+  }
+}
 
 .modal__img {
   flex: 1;
+}
+@media (max-width: 767px) {
+  .modal__img {
+    display: none;
+  }
 }
 
 .modal__wrapper {
@@ -679,6 +697,12 @@ svg {
   align-items: flex-start;
   flex-direction: column;
   gap: 40px;
+}
+@media (max-width: 767px) {
+  .modal__wrapper {
+    align-items: center;
+    gap: 20px;
+  }
 }
 
 .modal__name {
@@ -700,6 +724,11 @@ svg {
   line-height: 110%;
   letter-spacing: 0.06em;
 }
+@media (max-width: 950px) {
+  .modal__description {
+    font-size: 13px;
+  }
+}
 
 .modal__list {
   padding-left: 15px;
@@ -719,6 +748,12 @@ svg {
 }
 .modal .btn:hover {
   transform: rotate(90deg);
+}
+@media (max-width: 767px) {
+  .modal .btn {
+    top: -55px;
+    right: -25px;
+  }
 }
 
 /* PETS HEADER */
