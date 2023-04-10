@@ -104,6 +104,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     burgerIcon.addEventListener('click', burgerMenuHandler)
     burgerMenu.addEventListener('click', burgerMenuHandler)
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth > 768) {
+            burgerIcon.classList.remove('is-active')
+            burgerMenu.classList.remove('is-active')
+            document.querySelector('.overlay').remove()
+            document.body.style.overflow = ""
+        }
+    })
 
     function burgerMenuHandler(event) {
 
