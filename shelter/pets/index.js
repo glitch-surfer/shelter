@@ -221,7 +221,7 @@ const closePopup = (event) => {
 let paginationArr8Length = []
 let paginationArr6Length = []
 let paginationArr3Length = []
-let cardsOnPage = 8
+let cardsOnPage = document.documentElement.clientWidth > 950 ? 8 : document.documentElement.clientWidth <= 950 && document.documentElement.clientWidth > 450 ? 6 : 3
 /* let numberOfPages = countNumberOfPages(cardsOnPage) */
 
 function countNumberOfPages(cards) {
