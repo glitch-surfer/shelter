@@ -98,7 +98,7 @@ const petsData = [
 ]
 document.addEventListener('DOMContentLoaded', function () {
 
-    /* BURGER */
+    /* BURGER >>>>>>>>>>>>>>>>>>>>>*/
     const burgerIcon = document.getElementById('burger-icon')
     const burgerMenu = document.getElementById('burger-menu')
 
@@ -112,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = ""
         }
     })
-
     function burgerMenuHandler(event) {
 
         //make menu active
@@ -146,7 +145,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.append(overlay)
     }
 
-    /* POP UP */
+
+
+
+       /* POP UP >>>>>>>>>>>>>>>>*/
 
     document.querySelector('.carousel').addEventListener('click', (event) => {
         if (event.target.closest('.card')) {
@@ -163,11 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         document.querySelector('.overlay').addEventListener('click', closePopup)
     })
-
-
-    const getPetsData = (id) => {
-        return petsData.find(card => card.id == id)
-    }
+    const getPetsData = id => petsData.find(card => card.id == id)
+    
     const generateModal = (cardData) => {
 
         let card = document.createElement('div')
@@ -185,17 +184,15 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="modal__description">${cardData.description}</div>
         <ul class="modal__list">
             <li class="modal__item"><span class="modal__text"><b>Age:</b> ${cardData.age}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b> ${"".concat(...cardData.inoculations) || cardData.inoculations[0]}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Disease:</b> ${"".concat(...cardData.diseases) || cardData.diseases[0]}</span></li>
-            <li class="modal__item"><span class="modal__text"><b>Parasites:</b> ${"".concat(...cardData.parasites) || cardData.parasites[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Inoculations:</b> ${cardData.inoculations.join(', ') || cardData.inoculations[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Disease:</b> ${cardData.diseases.join(', ') || cardData.diseases[0]}</span></li>
+            <li class="modal__item"><span class="modal__text"><b>Parasites:</b> ${cardData.parasites.join(', ') || cardData.parasites[0]}</span></li>
         </ul>
     </div>`
 
         card.innerHTML = template
-
         return card
     }
-
     const closePopup = (event) => {
         if (!event.target.closest('.modal')) {
             document.querySelector('.overlay').remove()
@@ -207,13 +204,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    /* SLIDER */
+    /* SLIDER >>>>>>>>>>>>>>>> */
 
     let pastArr = []
     let currArr = []
     let nextArr = []
     //number of cards in slider window
-    let cardsNumber = 3
+    let cardsNumber = document.documentElement.clientWidth > 768 ? 3 : document.documentElement.clientWidth <= 768 && document.documentElement.clientWidth > 450 ? 2 : 1
     //number of cards at all -1 (count from 0, not data.length)
     let dataNumber = petsData.length - 1
 
@@ -238,7 +235,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // make new next arr, all 3 arrs is full now with 2 conditions: 1) next != curr 2) past != curr
         generateNextArr(nextArr, currArr)
 
-        sliderBackward.innerHTML = `<div class="card-list__item card-list__item_1">
+        generateCards(pastArr, sliderBackward)
+        generateCards(currArr, sliderActive)
+        generateCards(nextArr, sliderForward)
+
+       /*  sliderBackward.innerHTML = `<div class="card-list__item card-list__item_1">
 <div class="card slider__card card__interactive" data-id="${pastArr[0].id}">
     <img class="card__img" src="${pastArr[0].img}" alt="animal">
     <h3 class="card__subtitle">${pastArr[0].name}</h3>
@@ -300,9 +301,23 @@ document.addEventListener('DOMContentLoaded', function () {
     <h3 class="card__subtitle">${nextArr[2].name}</h3>
     <button class="card__btn btn">Learn more</button>
 </div>
-    </div>`
+    </div>` */
     }
     sliderInit()
+
+    function generateCards(arr, sliderPosition) {
+        sliderPosition.innerHTML = ''
+        for (let i = 0; i < cardsNumber; ++i) {
+            let card = `<div class="card-list__item card-list__item_1">
+            <div class="card slider__card card__interactive" data-id="${arr[i].id}">
+                <img class="card__img" src="${arr[i].img}" alt="${arr[i].breed}">
+                <h3 class="card__subtitle">${arr[i].name}</h3>
+                <button class="card__btn btn">Learn more</button>
+            </div>
+            </div>`
+            sliderPosition.insertAdjacentHTML('beforeend', card)
+        }
+    }
 
     function generateRandomArr(arr) {
         while (arr.length < cardsNumber) {
@@ -327,28 +342,9 @@ document.addEventListener('DOMContentLoaded', function () {
         sliderForward.classList.add('animation-move-left-forward')
         //waiting while animation ends
         sliderActive.addEventListener('animationend', () => {
+            /* pastArr = currArr */
             currArr = nextArr
-            sliderActive.innerHTML = `<div class="card-list__item card-list__item_1">
-<div class="card slider__card card__interactive" data-id="${currArr[0].id}">
-    <img class="card__img" src="${currArr[0].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[0].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_2">
-<div class="card slider__card card__interactive" data-id="${currArr[1].id}">
-    <img class="card__img" src="${currArr[1].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[1].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_3">
-<div class="card slider__card card__interactive" data-id="${currArr[2].id}">
-    <img class="card__img" src="${currArr[2].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[2].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-    </div>`
+            generateCards(currArr, sliderActive)
             //come back
             sliderActive.classList.remove('animation-move-left-active')
             sliderForward.classList.remove('animation-move-left-forward')
@@ -358,29 +354,8 @@ document.addEventListener('DOMContentLoaded', function () {
         //add new nextArr
         nextArr = []
         generateNextArr(nextArr, currArr)
-        sliderForward.innerHTML = `<div class="card-list__item card-list__item_1">
-<div class="card slider__card card__interactive" data-id="${nextArr[0].id}">
-    <img class="card__img" src="${nextArr[0].img}" alt="animal">
-    <h3 class="card__subtitle">${nextArr[0].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_2">
-<div class="card slider__card card__interactive" data-id="${nextArr[1].id}">
-    <img class="card__img" src="${nextArr[1].img}" alt="animal">
-    <h3 class="card__subtitle">${nextArr[1].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_3">
-<div class="card slider__card card__interactive" data-id="${nextArr[2].id}">
-    <img class="card__img" src="${nextArr[2].img}" alt="animal">
-    <h3 class="card__subtitle">${nextArr[2].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-    </div>`
-
-
+        generateCards(nextArr, sliderForward)
+        /* generateCards(pastArr, sliderBackward) */
     }
 
     function backward() {
@@ -389,28 +364,11 @@ document.addEventListener('DOMContentLoaded', function () {
         sliderActive.classList.add('animation-move-right-active')
         sliderBackward.classList.add('animation-move-right-backward')
         sliderActive.addEventListener('animationend', () => {
+            
+
             currArr = pastArr
-            sliderActive.innerHTML = `<div class="card-list__item card-list__item_1">
-<div class="card slider__card card__interactive" data-id="${currArr[0].id}">
-    <img class="card__img" src="${currArr[0].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[0].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_2">
-<div class="card slider__card card__interactive" data-id="${currArr[1].id}">
-    <img class="card__img" src="${currArr[1].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[1].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_3">
-<div class="card slider__card card__interactive" data-id="${currArr[2].id}">
-    <img class="card__img" src="${currArr[2].img}" alt="animal">
-    <h3 class="card__subtitle">${currArr[2].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-    </div>`
+            generateCards(currArr, sliderActive)
+
             sliderActive.classList.remove('animation-move-right-active')
             sliderBackward.classList.remove('animation-move-right-backward')
 
@@ -418,30 +376,30 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         pastArr = []
         generateNextArr(pastArr, currArr)
-        sliderBackward.innerHTML = `<div class="card-list__item card-list__item_1">
-<div class="card slider__card card__interactive" data-id="${pastArr[0].id}">
-    <img class="card__img" src="${pastArr[0].img}" alt="animal">
-    <h3 class="card__subtitle">${pastArr[0].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_2">
-<div class="card slider__card card__interactive" data-id="${pastArr[1].id}">
-    <img class="card__img" src="${pastArr[1].img}" alt="animal">
-    <h3 class="card__subtitle">${pastArr[1].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-</div>
-<div class="card-list__item card-list__item_3">
-<div class="card slider__card card__interactive" data-id="${pastArr[2].id}">
-    <img class="card__img" src="${pastArr[2].img}" alt="animal">
-    <h3 class="card__subtitle">${pastArr[2].name}</h3>
-    <button class="card__btn btn">Learn more</button>
-</div>
-    </div>`
+        generateCards(pastArr, sliderBackward)
     }
 
     forwardBtn.addEventListener('click', forward)
     backwardBtn.addEventListener('click', backward)
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth > 768) {
+            cardsNumber = 3
+            generateCards(currArr, sliderActive)
+            generateCards(pastArr, sliderBackward)
+            generateCards(nextArr, sliderForward)
+        }
+        if (document.documentElement.clientWidth <= 768) {
+            cardsNumber = 2
+            generateCards(currArr, sliderActive)
+            generateCards(pastArr, sliderBackward)
+            generateCards(nextArr, sliderForward)
+        }
+        if (document.documentElement.clientWidth <= 450) {
+            cardsNumber = 1
+            generateCards(currArr, sliderActive)
+            generateCards(pastArr, sliderBackward)
+            generateCards(nextArr, sliderForward)
+        }
+    })
 
 })

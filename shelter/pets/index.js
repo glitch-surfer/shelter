@@ -97,92 +97,89 @@ const petsData = [
     }
 ]
 
+document.addEventListener('DOMContentLoaded', function () {
+    /* CONST >>>>>>>>>>>>>>>>*/
+    const burgerIcon = document.getElementById('burger-icon')
+    const burgerMenu = document.getElementById('burger-menu')
+    const paginationContainer = document.getElementById('pets-pagination')
+    const paginationBtnFirst = document.getElementById('pagination-btn-first')
+    const paginationBtnPrev = document.getElementById('pagination-btn-prev')
+    const paginationBtnCentral = document.getElementById('pagination-btn-central')
+    const paginationBtnNext = document.getElementById('pagination-btn-next')
+    const paginationBtnLast = document.getElementById('pagination-btn-last')
 
-/* CONST */
-const burgerIcon = document.getElementById('burger-icon')
-const burgerMenu = document.getElementById('burger-menu')
-const paginationContainer = document.getElementById('pets-pagination')
-const paginationBtnFirst = document.getElementById('pagination-btn-first')
-const paginationBtnPrev = document.getElementById('pagination-btn-prev')
-const paginationBtnCentral = document.getElementById('pagination-btn-central')
-const paginationBtnNext = document.getElementById('pagination-btn-next')
-const paginationBtnLast = document.getElementById('pagination-btn-last')
 
+    /* BURGER >>>>>>>>>>>>>>>>*/
+    burgerIcon.addEventListener('click', burgerMenuHandler)
+    burgerMenu.addEventListener('click', burgerMenuHandler)
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth > 768) {
+            burgerIcon.classList.remove('is-active')
+            burgerMenu.classList.remove('is-active')
+            if (document.querySelector('.overlay')) { document.querySelector('.overlay').remove() }
+            document.body.style.overflow = ""
+        }
+    })
 
-/* BURGER */
-burgerIcon.addEventListener('click', burgerMenuHandler)
-burgerMenu.addEventListener('click', burgerMenuHandler)
-window.addEventListener('resize', () => {
-    if (document.documentElement.clientWidth > 768) {
-        burgerIcon.classList.remove('is-active')
-        burgerMenu.classList.remove('is-active')
-        if (document.querySelector('.overlay')) {document.querySelector('.overlay').remove()}
-        document.body.style.overflow = ""
+    function burgerMenuHandler(event) {
+
+        //make menu active
+        if (!burgerIcon.classList.contains('is-active')) {
+            burgerIcon.classList.add('is-active')
+            burgerMenu.classList.add('is-active')
+            generateOverlay()
+            document.body.style.overflow = "hidden"
+
+            //add listener to overlay
+            document.querySelector('.overlay').addEventListener('click', burgerMenuHandler)
+        }
+        //make menu inActive
+        else if (!event.target.classList.contains('burger-menu')) {
+            burgerIcon.classList.remove('is-active')
+            burgerMenu.classList.remove('is-active')
+            document.querySelector('.overlay').remove()
+            document.body.style.overflow = ""
+        }
     }
-})
-
-function burgerMenuHandler(event) {
-
-    //make menu active
-    if (!burgerIcon.classList.contains('is-active')) {
-        burgerIcon.classList.add('is-active')
-        burgerMenu.classList.add('is-active')
-        generateOverlay()
-        document.body.style.overflow = "hidden"
-
-        //add listener to overlay
-        document.querySelector('.overlay').addEventListener('click', burgerMenuHandler)
+    /* if (!event.target.classList.contains('burger-menu')) {
+        burgerIcon.classList.toggle('is-active')
+        burgerMenu.classList.toggle('is-active')
+        overlay.classList.toggle('is-active')
+    
+        //document.body.classList.toggle('is-active')
+    } */
+    function generateOverlay() {
+        let overlay = document.createElement('div')
+        overlay.classList.add('overlay')
+        document.body.append(overlay)
     }
-    //make menu inActive
-    else if (!event.target.classList.contains('burger-menu')) {
-        burgerIcon.classList.remove('is-active')
-        burgerMenu.classList.remove('is-active')
-        document.querySelector('.overlay').remove()
-        document.body.style.overflow = ""
-    }
-}
-/* if (!event.target.classList.contains('burger-menu')) {
-    burgerIcon.classList.toggle('is-active')
-    burgerMenu.classList.toggle('is-active')
-    overlay.classList.toggle('is-active')
-
-    //document.body.classList.toggle('is-active')
-} */
-function generateOverlay() {
-    let overlay = document.createElement('div')
-    overlay.classList.add('overlay')
-    document.body.append(overlay)
-}
 
 
-/* POP UP */
+    /* POP UP >>>>>>>>>>>>>>>>*/
 
-document.querySelector('.pets-page-slider').addEventListener('click', (event) => {
-    if (event.target.closest('.card')) {
+    document.querySelector('.pets-page-slider').addEventListener('click', (event) => {
+        if (event.target.closest('.card')) {
 
-        //select pets data
-        let cardId = event.target.closest('.card').dataset.id
-        let cardData = getPetsData(cardId)
+            //select pets data
+            let cardId = event.target.closest('.card').dataset.id
+            let cardData = getPetsData(cardId)
 
-        //make a modal and overlay
-        let modalWindow = generateModal(cardData)
-        generateOverlay()
-        document.querySelector('.overlay').append(modalWindow)
-        document.body.style.overflow = "hidden"
-    }
-    document.querySelector('.overlay').addEventListener('click', closePopup)
-})
+            //make a modal and overlay
+            let modalWindow = generateModal(cardData)
+            generateOverlay()
+            document.querySelector('.overlay').append(modalWindow)
+            document.body.style.overflow = "hidden"
+        }
+        document.querySelector('.overlay').addEventListener('click', closePopup)
+    })
+    const getPetsData = id => petsData.find(card => card.id == id)
+    
+    const generateModal = (cardData) => {
 
+        let card = document.createElement('div')
+        card.classList.add('modal')
 
-const getPetsData = (id) => {
-    return petsData.find(card => card.id == id)
-}
-const generateModal = (cardData) => {
-
-    let card = document.createElement('div')
-    card.classList.add('modal')
-
-    let template = `<img class="modal__img" src="${cardData.img}" alt="animal">
+        let template = `<img class="modal__img" src="${cardData.img}" alt="animal">
     <button class="btn slider__btn"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003V6.00003Z" fill="#292929"/>
     </svg></button>
@@ -200,143 +197,144 @@ const generateModal = (cardData) => {
         </ul>
     </div>`
 
-    card.innerHTML = template
-
-    return card
-}
-
-const closePopup = (event) => {
-    if (!event.target.closest('.modal')) {
-        document.querySelector('.overlay').remove()
-        document.body.style.overflow = ""
+        card.innerHTML = template
+        return card
     }
-    else if (event.target.closest('.btn')) {
-        document.querySelector('.overlay').remove()
-        document.body.style.overflow = ""
-    }
-}
-
-/* PAGINATION */
-
-let paginationArr8Length = []
-let paginationArr6Length = []
-let paginationArr3Length = []
-let cardsOnPage = document.documentElement.clientWidth > 950 ? 8 : document.documentElement.clientWidth <= 950 && document.documentElement.clientWidth > 450 ? 6 : 3
-/* let numberOfPages = countNumberOfPages(cardsOnPage) */
-
-function countNumberOfPages(cards) {
-    return 48 / cards
-}
-
-function generatePaginationArr(arr, cards) {
-    
-    for (let i = 1; i <= countNumberOfPages(cards); ++i) {
-
-        let result = []
-        while (result.length < cards) {
-            let randomItemIndex = Math.round((Math.random() * 7))
-            if (!result.includes(petsData[randomItemIndex]))
-                result.push(petsData[randomItemIndex])
+    const closePopup = (event) => {
+        if (!event.target.closest('.modal')) {
+            document.querySelector('.overlay').remove()
+            document.body.style.overflow = ""
         }
-
-        for (let j = 0; j < cards; j++) {
-            arr.push(result[j])
+        else if (event.target.closest('.btn')) {
+            document.querySelector('.overlay').remove()
+            document.body.style.overflow = ""
         }
     }
-}
-
-generatePaginationArr(paginationArr8Length, 8)
-generatePaginationArr(paginationArr6Length, 6)
-generatePaginationArr(paginationArr3Length, 3)
 
 
-function generatePage(pageNumber) {
-    if (cardsOnPage === 8 ) {
-        paginationArr = paginationArr8Length
+
+    /* PAGINATION>>>>>>>>>>>>>>>> */
+
+    let paginationArr8Length = []
+    let paginationArr6Length = []
+    let paginationArr3Length = []
+    let cardsOnPage = document.documentElement.clientWidth > 950 ? 8 : document.documentElement.clientWidth <= 950 && document.documentElement.clientWidth > 450 ? 6 : 3
+    /* let numberOfPages = countNumberOfPages(cardsOnPage) */
+
+    function countNumberOfPages(cards) {
+        return 48 / cards
     }
-    if (cardsOnPage === 6 ) {
-        paginationArr = paginationArr6Length
+
+    function generatePaginationArr(arr, cards) {
+
+        for (let i = 1; i <= countNumberOfPages(cards); ++i) {
+
+            let result = []
+            while (result.length < cards) {
+                let randomItemIndex = Math.round((Math.random() * 7))
+                if (!result.includes(petsData[randomItemIndex]))
+                    result.push(petsData[randomItemIndex])
+            }
+
+            for (let j = 0; j < cards; j++) {
+                arr.push(result[j])
+            }
+        }
     }
-    if (cardsOnPage === 3 ) {
-        paginationArr = paginationArr3Length
-    }
-    
-    paginationContainer.innerHTML = ''
-    for (let i = (pageNumber * cardsOnPage - cardsOnPage); i < pageNumber * cardsOnPage; ++i) {
-        let card = `<li class="pets-page-slider__item">
+
+    generatePaginationArr(paginationArr8Length, 8)
+    generatePaginationArr(paginationArr6Length, 6)
+    generatePaginationArr(paginationArr3Length, 3)
+
+
+    function generatePage(pageNumber) {
+        if (cardsOnPage === 8) {
+            paginationArr = paginationArr8Length
+        }
+        if (cardsOnPage === 6) {
+            paginationArr = paginationArr6Length
+        }
+        if (cardsOnPage === 3) {
+            paginationArr = paginationArr3Length
+        }
+
+        paginationContainer.innerHTML = ''
+        for (let i = (pageNumber * cardsOnPage - cardsOnPage); i < pageNumber * cardsOnPage; ++i) {
+            let card = `<li class="pets-page-slider__item">
         <div class="card pets-page-slider__card card__interactive" data-id="${paginationArr[i].id}">
             <img class="card__img" src="${paginationArr[i].img}" alt="${paginationArr[i].breed}">
             <h3 class="card__subtitle subtitle">${paginationArr[i].name}</h3>
             <button class="card__btn btn">Learn more</button>
         </div>
         </li>`
-        paginationContainer.insertAdjacentHTML('beforeend', card)
+            paginationContainer.insertAdjacentHTML('beforeend', card)
+        }
+        // for check all pets same weight in arr
+        /* function findId(arr) {
+           return arr.filter(item => item.id == 3)
+           console.log(findId(paginationArr))
+        } */
     }
-    // for check all pets same weight in arr
-    /* function findId(arr) {
-       return arr.filter(item => item.id == 3)
-       console.log(findId(paginationArr))
-    } */
-}
 
-generatePage(1)
+    generatePage(1)
 
-paginationBtnNext.addEventListener('click', () => {
-    let currentPage = +paginationBtnCentral.innerHTML
-    generatePage(currentPage + 1)
-    paginationBtnCentral.innerHTML = currentPage + 1
-    if (paginationBtnCentral.innerHTML == countNumberOfPages(cardsOnPage)) {
+    paginationBtnNext.addEventListener('click', () => {
+        let currentPage = +paginationBtnCentral.innerHTML
+        generatePage(currentPage + 1)
+        paginationBtnCentral.innerHTML = currentPage + 1
+        if (paginationBtnCentral.innerHTML == countNumberOfPages(cardsOnPage)) {
+            paginationBtnNext.setAttribute('disabled', '')
+            paginationBtnLast.setAttribute('disabled', '')
+        }
+        paginationBtnFirst.removeAttribute('disabled')
+        paginationBtnPrev.removeAttribute('disabled')
+    })
+
+    paginationBtnPrev.addEventListener('click', () => {
+        let currentPage = +paginationBtnCentral.innerHTML
+        generatePage(currentPage - 1)
+        paginationBtnCentral.innerHTML = currentPage - 1
+
+        if (paginationBtnCentral.innerHTML == 1) {
+            paginationBtnFirst.setAttribute('disabled', '')
+            paginationBtnPrev.setAttribute('disabled', '')
+        }
+        paginationBtnLast.removeAttribute('disabled')
+        paginationBtnNext.removeAttribute('disabled')
+    })
+
+    paginationBtnLast.addEventListener('click', () => {
+        generatePage(countNumberOfPages(cardsOnPage))
+        paginationBtnCentral.innerHTML = countNumberOfPages(cardsOnPage)
+
         paginationBtnNext.setAttribute('disabled', '')
         paginationBtnLast.setAttribute('disabled', '')
-    }
-    paginationBtnFirst.removeAttribute('disabled')
-    paginationBtnPrev.removeAttribute('disabled')
-})
+        paginationBtnFirst.removeAttribute('disabled')
+        paginationBtnPrev.removeAttribute('disabled')
+    })
+    function moveToFirstPage() {
+        generatePage(1)
+        paginationBtnCentral.innerHTML = 1
 
-paginationBtnPrev.addEventListener('click', () => {
-    let currentPage = +paginationBtnCentral.innerHTML
-    generatePage(currentPage - 1)
-    paginationBtnCentral.innerHTML = currentPage - 1
-
-    if (paginationBtnCentral.innerHTML == 1) {
         paginationBtnFirst.setAttribute('disabled', '')
         paginationBtnPrev.setAttribute('disabled', '')
+        paginationBtnNext.removeAttribute('disabled')
+        paginationBtnLast.removeAttribute('disabled')
     }
-    paginationBtnLast.removeAttribute('disabled')
-    paginationBtnNext.removeAttribute('disabled')
-})
+    paginationBtnFirst.addEventListener('click', moveToFirstPage)
 
-paginationBtnLast.addEventListener('click', () => {
-    generatePage(countNumberOfPages(cardsOnPage))
-    paginationBtnCentral.innerHTML = countNumberOfPages(cardsOnPage)
-
-    paginationBtnNext.setAttribute('disabled', '')
-    paginationBtnLast.setAttribute('disabled', '')
-    paginationBtnFirst.removeAttribute('disabled')
-    paginationBtnPrev.removeAttribute('disabled')
-})
-function moveToFirstPage() {
-    generatePage(1)
-    paginationBtnCentral.innerHTML = 1
-
-    paginationBtnFirst.setAttribute('disabled', '')
-    paginationBtnPrev.setAttribute('disabled', '')
-    paginationBtnNext.removeAttribute('disabled')
-    paginationBtnLast.removeAttribute('disabled')
-}
-paginationBtnFirst.addEventListener('click', moveToFirstPage)
-
-window.addEventListener('resize', () => {
-    if (document.documentElement.clientWidth > 950) {
-        cardsOnPage = 8
-        moveToFirstPage()
-    }
-    if (document.documentElement.clientWidth <= 950) {
-        cardsOnPage = 6
-        moveToFirstPage()
-    }
-    if (document.documentElement.clientWidth <= 450) {
-        cardsOnPage = 3
-        moveToFirstPage()
-    }
+    window.addEventListener('resize', () => {
+        if (document.documentElement.clientWidth > 950) {
+            cardsOnPage = 8
+            moveToFirstPage()
+        }
+        if (document.documentElement.clientWidth <= 950) {
+            cardsOnPage = 6
+            moveToFirstPage()
+        }
+        if (document.documentElement.clientWidth <= 450) {
+            cardsOnPage = 3
+            moveToFirstPage()
+        }
+    })
 })
