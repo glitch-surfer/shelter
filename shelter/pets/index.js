@@ -116,7 +116,7 @@ window.addEventListener('resize', () => {
     if (document.documentElement.clientWidth > 768) {
         burgerIcon.classList.remove('is-active')
         burgerMenu.classList.remove('is-active')
-        document.querySelector('.overlay').remove()
+        if (document.querySelector('.overlay')) {document.querySelector('.overlay').remove()}
         document.body.style.overflow = ""
     }
 })
@@ -218,7 +218,9 @@ const closePopup = (event) => {
 
 /* PAGINATION */
 
-let paginationArr = []
+let paginationArr8Length = []
+let paginationArr6Length = []
+let paginationArr3Length = []
 let cardsOnPage = 8
 /* let numberOfPages = countNumberOfPages(cardsOnPage) */
 
@@ -226,27 +228,39 @@ function countNumberOfPages(cards) {
     return 48 / cards
 }
 
-function generatePaginationArr(arr) {
-
-    for (let i = 1; i <= countNumberOfPages(cardsOnPage); ++i) {
+function generatePaginationArr(arr, cards) {
+    
+    for (let i = 1; i <= countNumberOfPages(cards); ++i) {
 
         let result = []
-        while (result.length < 8) {
-            let randomItemIndex = Math.round(Math.random() * (cardsOnPage - 1))
+        while (result.length < cards) {
+            let randomItemIndex = Math.round((Math.random() * 7))
             if (!result.includes(petsData[randomItemIndex]))
                 result.push(petsData[randomItemIndex])
         }
 
-        for (let j = 0; j < cardsOnPage; j++) {
+        for (let j = 0; j < cards; j++) {
             arr.push(result[j])
         }
     }
 }
 
-generatePaginationArr(paginationArr)
+generatePaginationArr(paginationArr8Length, 8)
+generatePaginationArr(paginationArr6Length, 6)
+generatePaginationArr(paginationArr3Length, 3)
 
 
 function generatePage(pageNumber) {
+    if (cardsOnPage === 8 ) {
+        paginationArr = paginationArr8Length
+    }
+    if (cardsOnPage === 6 ) {
+        paginationArr = paginationArr6Length
+    }
+    if (cardsOnPage === 3 ) {
+        paginationArr = paginationArr3Length
+    }
+    
     paginationContainer.innerHTML = ''
     for (let i = (pageNumber * cardsOnPage - cardsOnPage); i < pageNumber * cardsOnPage; ++i) {
         let card = `<li class="pets-page-slider__item">
@@ -258,6 +272,11 @@ function generatePage(pageNumber) {
         </li>`
         paginationContainer.insertAdjacentHTML('beforeend', card)
     }
+    // for check all pets same weight in arr
+    /* function findId(arr) {
+       return arr.filter(item => item.id == 3)
+       console.log(findId(paginationArr))
+    } */
 }
 
 generatePage(1)
