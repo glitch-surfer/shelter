@@ -2,7 +2,7 @@
 - Multi-page site
 - HTML
 - SCSS
-- JS
+- JS (slider, pagination, modal window, burger menu on pure JS)
 - Responsiveness from 320 to 1920 pixels
 - Pixel Perfect layout
 - Semantic layout
